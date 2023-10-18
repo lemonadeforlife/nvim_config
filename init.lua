@@ -9,7 +9,7 @@ require('lazy').setup('nahian/plugins')
 vim.cmd[[colorscheme tokyonight-night]]
 
 --lualine
-require('lualine').setup { options = { theme = 'tokyonight' } }
+require('lualine').setup { options = { theme = 'tokyonight', globalstatus = false } }
 
 -- tree
 require('nvim-tree').setup {}
