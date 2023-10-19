@@ -29,3 +29,6 @@ require('nahian/lsp_config')
 
 -- syntax highlight
 require('nahian/treesitter')
+
+-- telescope
+require('nahian/telescope')
