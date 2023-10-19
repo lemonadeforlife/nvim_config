@@ -12,7 +12,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local not_on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -40,13 +40,16 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 
 require("lspconfig").lua_ls.setup {
-    on_attach = on_attach,
+    on_attach = not_on_attach,
     capabilities = capabilities,
     filetypes = { "lua" }
 }
 
 require('lspconfig').pyright.setup {
-    on_attach = on_attach,
+    on_attach = function(client, buffer)
+        client.handlers["textDocument/publishDiagnostics"] = function (...) end
+        on_attach(client, buffer)
+        end,
     capabilities = capabilities,
     root_dir = function ()
         return vim.fn.getcwd()  -- returns current directory only for pyright lsp
