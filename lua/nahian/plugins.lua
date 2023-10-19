@@ -32,6 +32,7 @@ return {
     {
         "jose-elias-alvarez/null-ls.nvim",
         ft = {"python"},
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
     "nvim-treesitter/nvim-treesitter",
     "hrsh7th/nvim-cmp",

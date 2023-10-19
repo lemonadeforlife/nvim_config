@@ -13,6 +13,7 @@
   "nvim-tree.lua": { "branch": "master", "commit": "40b9b887d090d5da89a84689b4ca0304a9649f62" },
   "nvim-treesitter": { "branch": "master", "commit": "9c4fc86b67c1d68141cef57846d24cbee9b74fb0" },
   "nvim-web-devicons": { "branch": "master", "commit": "3af745113ea537f58c4b1573b64a429fefad9e07" },
+  "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "toggleterm.nvim": { "branch": "main", "commit": "faee9d60428afc7857e0927fdc18daa6c409fa64" },
   "tokyonight.nvim": { "branch": "main", "commit": "633039585dff7fd2b9b62fb190bf768702609d95" }
 }
