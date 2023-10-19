@@ -7,7 +7,7 @@ null_ls.setup {
         formatting.black,
         diagnostics.flake8,
     },
-    on_attach = function(client, bufnr)
+    on_attach = function(client, bufnr)  -- for formate the file on save
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
