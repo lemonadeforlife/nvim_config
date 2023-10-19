@@ -17,11 +17,12 @@ require('nvim-tree').setup {}
 -- toggleterm
 require('toggleterm').setup {}
 
--- null-ls
-require('nahian/null_ls')
 
 -- autocomplete & Suggestion
 require('nahian/completions')
+
+-- null-ls
+require('nahian/null_ls')
 
 -- lsp
 require('nahian/lsp_config')
