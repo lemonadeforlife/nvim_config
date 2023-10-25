@@ -32,6 +32,13 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- quit neovim
+keymap("n", "<leader>xs", ":x<CR>", opts) -- (Save & Exit)
+keymap("n", "<leader>xa", ":qa<CR>", opts) -- (Quit all open files)
+
+-- bufferline
+keymap("n", "<leader>xx", ":bdelete<CR>", opts)
+
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -70,5 +77,3 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- ToggleTerm
 keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
 
--- bufferline
-keymap("n", "<leader>x", ":bdelete<CR>", opts)
