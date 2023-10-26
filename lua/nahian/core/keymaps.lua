@@ -37,7 +37,7 @@ keymap("n", "<leader>xs", ":x<CR>", opts) -- (Save & Exit)
 keymap("n", "<leader>xa", ":qa<CR>", opts) -- (Quit all open files)
 
 -- bufferline
-keymap("n", "<leader>xx", ":bdelete<CR>", opts)
+keymap("n", "<leader>xx", ":bdelete!<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
