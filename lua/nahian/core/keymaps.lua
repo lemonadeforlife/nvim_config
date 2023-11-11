@@ -37,8 +37,8 @@ keymap("n", "<leader>xs", ":x<CR>", opts) -- (Save & Exit)
 keymap("n", "<leader>xa", ":qa<CR>", opts) -- (Quit all open files)
 
 -- bufferline
-keymap("n", "<leader>xx", ":bdelete!<CR>", opts)
-
+keymap("n", "<leader>xb", ":bdelete!<CR>", opts)
+vim.keymap.set({"n", "i", "v"}, "<C-p>", ":BufferLineTogglePin<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -75,5 +75,5 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- ToggleTerm
-keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
+keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts)
 
