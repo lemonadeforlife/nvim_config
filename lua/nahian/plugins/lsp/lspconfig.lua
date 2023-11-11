@@ -62,11 +62,17 @@ return {
             on_attach = on_attach,
             settings = {
                 Lua = {
+                    runtime = {
+                        version = 'LuaJIT',
+                    },
                     diagnostics = {
                         globals = {
                             'vim',
                             'require',
                         },
+                    },
+                    workpace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
                     },
                 },
             },
