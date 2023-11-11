@@ -1,5 +1,6 @@
--- All the folder implemented
-require('nahian/keymaps')
-require('nahian/options')
-require('nahian/plugins')
-require('nahian/store')
+require("nahian.core")
+require("nahian.store")
+require("lazy").setup({
+	{ import = "nahian.plugins" },
+	{ import = "nahian.plugins.lsp" },
+})
