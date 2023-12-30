@@ -56,43 +56,46 @@ return {
         end
 
         -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local cap = cmp_nvim_lsp.default_capabilities()
         lspconfig["lua_ls"].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
+            capabilities = cap,
             settings = {
                 Lua = {
-                    runtime = {
-                        version = 'LuaJIT',
+                  runtime = {
+                    -- Tell the language server which version of Lua you're using
+                    -- (most likely LuaJIT in the case of Neovim)
+                    version = 'LuaJIT',
+                  },
+                  diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = {
+                      'vim',
+                      'require'
                     },
-                    diagnostics = {
-                        globals = {
-                            'vim',
-                            'require',
-                        },
-                    },
-                    workpace = {
-                        library = vim.api.nvim_get_runtime_file("", true),
-                    },
+                  },
+                  workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = vim.api.nvim_get_runtime_file("", true),
+                  },
+                  -- Do not send telemetry data containing a randomized but unique identifier
+                  telemetry = {
+                    enable = false,
+                  },
                 },
             },
+        }
+        lspconfig["pyright"].setup {
+            on_attach = on_attach,
+            capabilities = cap
+        }
+        lspconfig["tsserver"].setup {
+            on_attach = on_attach,
+            capabilities = cap,
+            init_options = {
+                preferences = {
+                    disableSuggestions = true,
+                }
             }
-        lspconfig["pyright"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig["html"].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        }
-        lspconfig["cssls"].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        }
-        lspconfig['eslint'].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
         }
     end,
 }

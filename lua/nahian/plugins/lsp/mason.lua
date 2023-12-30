@@ -18,7 +18,9 @@ return {
                 "flake8",
                 "html",
                 "cssls",
-                "eslint",
+                "tsserver",
+                "eslint_d",
+                "prettier",
 		    },
         }
 	    mason_lspconfig.setup({
