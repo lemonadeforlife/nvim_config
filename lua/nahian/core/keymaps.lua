@@ -4,6 +4,7 @@ local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+local keymaps = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -32,13 +33,15 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+keymap("n", "<leader>h", ":noh<CR>", opts) -- remove highlight
 -- quit neovim
-keymap("n", "<leader>xs", ":x<CR>", opts) -- (Save & Exit)
+keymap("n", "<leader>xx", ":x<CR>", opts) -- (Save & Exit)
+keymap("n", "<leader>xs", ":w<CR>", opts) -- (Save)
 keymap("n", "<leader>xa", ":qa<CR>", opts) -- (Quit all open files)
 
 -- bufferline
 keymap("n", "<leader>xb", ":bdelete!<CR>", opts)
-vim.keymap.set({"n", "i", "v"}, "<C-p>", ":BufferLineTogglePin<CR>", opts)
+keymaps({"n", "i", "v"}, "<C-p>", "<ESC>:BufferLineTogglePin<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -77,3 +80,9 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- ToggleTerm
 keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts)
 
+-- fold
+keymap("n", "<leader>fc", ":foldclose<CR>", opts)
+keymap("n", "<leader>fo", ":foldopen<CR>", opts)
+
+-- Mason Shortcut
+keymap("n", "<C-m>", ":Mason<CR>", opts)
