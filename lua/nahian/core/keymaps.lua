@@ -84,5 +84,5 @@ keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts)
 keymap("n", "<leader>fc", ":foldclose<CR>", opts)
 keymap("n", "<leader>fo", ":foldopen<CR>", opts)
 
--- Mason Shortcut
-keymap("n", "<C-m>", ":Mason<CR>", opts)
+-- Trouble
+keymap("n", "<leader>l", ":TroubleToggle<CR>", opts)
