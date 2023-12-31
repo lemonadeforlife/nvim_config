@@ -10,7 +10,6 @@ return {
 			sources = {
                 -- python
                 formatting.black,
-				formatting.ruff,
 				diagnos.flake8,
                 -- javascript
                 diagnos.eslint_d,
