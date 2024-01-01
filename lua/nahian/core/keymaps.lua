@@ -5,11 +5,9 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 local keymaps = vim.keymap.set
-
+local wk  = require("which-key")
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -25,22 +23,28 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
-keymap("n", "<leader>h", ":noh<CR>", opts) -- remove highlight
+wk.register({
+    ["<leader>h"] = { "<cmd>noh<CR>", "Remove highlight" }
+})
+-- keymap("n", "<leader>h", ":noh<CR>", opts) -- remove highlight
 -- quit neovim
-keymap("n", "<leader>xx", ":x<CR>", opts) -- (Save & Exit)
-keymap("n", "<leader>xs", ":w<CR>", opts) -- (Save)
-keymap("n", "<leader>xa", ":qa<CR>", opts) -- (Quit all open files)
+wk.register({
+    x = {
+        name = "Neovim",
+        a = { "<cmd>qa<cr>", "Quit all open files without saving" },
+        s = { "<cmd>w<cr>", "Save" },
+        x = { "<cmd>x<cr>", "Save & Exit"},
+        b = {"<cmd>bdelete!<cr>", "Close Buffer Window"},
+   }
+}, { prefix = "<leader>" })
 
 -- bufferline
-keymap("n", "<leader>xb", ":bdelete!<CR>", opts)
 keymaps({"n", "i", "v"}, "<C-p>", "<ESC>:BufferLineTogglePin<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -76,13 +80,27 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- NvimTreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+wk.register( { ["<leader>e"] = "File Explorer" } )
 
 -- ToggleTerm
 keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts)
+wk.register( { ["<leader>t"] = "Terminal" } )
 
 -- fold
 keymap("n", "<leader>fc", ":foldclose<CR>", opts)
+wk.register( { ["<leader>fc"] = "Fold" } )
 keymap("n", "<leader>fo", ":foldopen<CR>", opts)
+wk.register( { ["<leader>fo"] = "Unfold" } )
 
 -- Trouble
 keymap("n", "<leader>l", ":TroubleToggle<CR>", opts)
+wk.register({
+    ["<leader>l"] = "Issue List"
+})
+
+-- telescope
+wk.register({
+    f = {
+        f = "Find File",
+    }
+})
