@@ -45,7 +45,14 @@ wk.register({
 }, { prefix = "<leader>" })
 
 -- bufferline
-keymaps({"n", "i", "v"}, "<C-p>", "<ESC>:BufferLineTogglePin<CR>", opts)
+keymaps({"n", "i", "v"}, "<C-p>", "<cmd>BufferLineTogglePin<CR>", opts)
+wk.register({
+    b = {
+        name = "Buffers",
+        l = {"<cmd>BufferLineCloseRight<cr>", "Close Right Side Buffer"},
+        h = {"<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer"},
+    }
+}, {prefix="<leader>"})
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -92,15 +99,28 @@ wk.register( { ["<leader>fc"] = "Fold" } )
 keymap("n", "<leader>fo", ":foldopen<CR>", opts)
 wk.register( { ["<leader>fo"] = "Unfold" } )
 
--- Trouble
-keymap("n", "<leader>l", ":TroubleToggle<CR>", opts)
+-- LSP Related Shortcuts: Trouble, Mason
 wk.register({
-    ["<leader>l"] = "Issue List"
-})
+    l = {
+        name = "LSP",
+        t = {"<cmd>TroubleToggle<cr>", "List of troubles from LSP"},
+        m = {"<cmd>Mason<cr>", "Mason Dashboard"},
+        n = {"<cmd>NullLsInfo<cr>", "Null Info Dashboard"},
+        l = {"<cmd>LspInfo<cr>", "Lsp Info Dashboard"},
+    }
+}, {prefix="<leader>"})
 
 -- telescope
 wk.register({
-    f = {
-        f = "Find File",
-    }
-})
+    s = {
+        name = "Search",
+        f = {"<cmd>Telescope find_files<cr>", "Search for File for current working workspace"},
+        s = {"<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory"},
+        h = {"<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your"},
+        g = {"<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore"},
+    },
+    g = {
+        name = "Git",
+        c = {"<cmd>Telescope git_commits<cr>", "List of Git commits"},
+    },
+}, {prefix="<leader>",silent=false, noremap=false})
