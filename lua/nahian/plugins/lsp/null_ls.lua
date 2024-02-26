@@ -1,6 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
 	config = function()
 		local null_ls = require("null-ls")
 		local formatting = null_ls.builtins.formatting
@@ -10,9 +10,9 @@ return {
 			sources = {
                 -- python
                 formatting.black,
-				diagnos.flake8,
+                require("none-ls.diagnostics.flake8"),
                 -- javascript
-                diagnos.eslint_d,
+                require("none-ls.diagnostics.eslint"),
                 formatting.prettier,
 			},
 			-- format on save
