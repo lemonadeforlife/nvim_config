@@ -15,11 +15,10 @@ return {
 			    "lua_ls",
 			    "pyright",
                 "black",
-                "flake8",
+                "ruff_lsp",
                 "html",
                 "cssls",
                 "tsserver",
-                "eslint_d",
                 "prettier",
 		    },
         }
