@@ -9,7 +9,7 @@ return {
         require("which-key").setup {}
         local wk  = require("which-key")
         wk.register({
-            ["<leader>h"] = { "<cmd>noh<CR>", "Remove highlight" }
+            ["<leader>nh"] = { "<cmd>noh<CR>", "Remove highlight" }
         })
         -- keymap("n", "<leader>h", ":noh<CR>", opts) -- remove highlight
         -- quit neovim
@@ -49,7 +49,7 @@ return {
             }
         }, {prefix="<leader>"})
 
-        -- telescope
+        -- telescope & gits
         wk.register({
             s = {
                 name = "Search",
@@ -61,6 +61,7 @@ return {
             g = {
                 name = "Git",
                 c = {"<cmd>Telescope git_commits<cr>", "List of Git commits"},
+                p = {":Gitsigns preview_hunk<cr>", "Shows you the changes on yellow bar"}
             },
         }, {prefix="<leader>",silent=false, noremap=false})
     end
