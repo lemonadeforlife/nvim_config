@@ -5,7 +5,6 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 local keymaps = vim.keymap.set
-local wk  = require("which-key")
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 
@@ -29,30 +28,6 @@ keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
-wk.register({
-    ["<leader>h"] = { "<cmd>noh<CR>", "Remove highlight" }
-})
--- keymap("n", "<leader>h", ":noh<CR>", opts) -- remove highlight
--- quit neovim
-wk.register({
-    x = {
-        name = "Neovim",
-        a = { "<cmd>qa<cr>", "Quit all open files without saving" },
-        s = { "<cmd>w<cr>", "Save" },
-        x = { "<cmd>x<cr>", "Save & Exit"},
-        b = {"<cmd>bdelete!<cr>", "Close Buffer Window"},
-   }
-}, { prefix = "<leader>" })
-
--- bufferline
-keymaps({"n", "i", "v"}, "<C-p>", "<cmd>BufferLineTogglePin<CR>", opts)
-wk.register({
-    b = {
-        name = "Buffers",
-        l = {"<cmd>BufferLineCloseRight<cr>", "Close Right Side Buffer"},
-        h = {"<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer"},
-    }
-}, {prefix="<leader>"})
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -85,42 +60,16 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- bufferline
+keymaps({"n", "i", "v"}, "<C-p>", "<cmd>BufferLineTogglePin<CR>", opts)
+
 -- NvimTreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-wk.register( { ["<leader>e"] = "File Explorer" } )
 
 -- ToggleTerm
 keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts)
-wk.register( { ["<leader>t"] = "Terminal" } )
 
 -- fold
 keymap("n", "<leader>fc", ":foldclose<CR>", opts)
-wk.register( { ["<leader>fc"] = "Fold" } )
 keymap("n", "<leader>fo", ":foldopen<CR>", opts)
-wk.register( { ["<leader>fo"] = "Unfold" } )
 
--- LSP Related Shortcuts: Trouble, Mason
-wk.register({
-    l = {
-        name = "LSP",
-        t = {"<cmd>TroubleToggle<cr>", "List of troubles from LSP"},
-        m = {"<cmd>Mason<cr>", "Mason Dashboard"},
-        n = {"<cmd>NullLsInfo<cr>", "Null Info Dashboard"},
-        l = {"<cmd>LspInfo<cr>", "Lsp Info Dashboard"},
-    }
-}, {prefix="<leader>"})
-
--- telescope
-wk.register({
-    s = {
-        name = "Search",
-        f = {"<cmd>Telescope find_files<cr>", "Search for File for current working workspace"},
-        s = {"<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory"},
-        h = {"<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your"},
-        g = {"<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore"},
-    },
-    g = {
-        name = "Git",
-        c = {"<cmd>Telescope git_commits<cr>", "List of Git commits"},
-    },
-}, {prefix="<leader>",silent=false, noremap=false})
