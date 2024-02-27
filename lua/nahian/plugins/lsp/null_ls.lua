@@ -8,9 +8,9 @@ return {
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 		null_ls.setup({
 			sources = {
-                -- python
+                -- [python]
                 formatting.black,
-                require("none-ls.diagnostics.flake8"),
+                --require("none-ls.diagnostics.flake8"),
                 -- javascript
                 require("none-ls.diagnostics.eslint"),
                 formatting.prettier,
