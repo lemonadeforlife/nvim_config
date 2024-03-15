@@ -15,7 +15,7 @@ return {
 			    "lua_ls",
 			    "pyright",
                 "black",
-                "ruff_lsp",
+                "flake8",
                 "html",
                 "cssls",
                 "tsserver",

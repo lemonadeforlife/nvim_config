@@ -22,8 +22,8 @@ return {
         -- used to enable autocompletion (assign to every lsp server config)
         local cap = cmp_nvim_lsp.default_capabilities()
         lspconfig["lua_ls"].setup {}
-        -- lspconfig["pyright"].setup { capabilities = cap }
-        lspconfig["ruff_lsp"].setup {capabilities = cap }
+        lspconfig["pyright"].setup { capabilities = cap }
+        --lspconfig["ruff_lsp"].setup {capabilities = cap }
         lspconfig["tsserver"].setup {
             capabilities = cap,
             init_options = {
