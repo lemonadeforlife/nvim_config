@@ -10,10 +10,10 @@ return {
 			sources = {
                 -- [python]
                 formatting.black,
-                require("none-ls.diagnostics.flake8"),
                 -- javascript
                 require("none-ls.diagnostics.eslint"),
                 formatting.prettier,
+                formatting.stylua,
 			},
 			-- format on save
 			on_attach = function(client, bufnr)
