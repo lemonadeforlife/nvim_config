@@ -14,6 +14,7 @@ return {
                 -- javascript
                 require("none-ls.diagnostics.eslint"),
                 formatting.prettier,
+                formatting.stylua,
 			},
 			-- format on save
 			on_attach = function(client, bufnr)
