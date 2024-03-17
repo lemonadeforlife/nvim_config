@@ -8,12 +8,10 @@ return {
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 		null_ls.setup({
 			sources = {
-                -- [python]
-                formatting.black,
-                -- javascript
-                require("none-ls.diagnostics.eslint"),
-                formatting.prettier,
-                formatting.stylua,
+				-- javascript
+				require("none-ls.diagnostics.eslint"),
+				formatting.prettier,
+				formatting.stylua,
 			},
 			-- format on save
 			on_attach = function(client, bufnr)
@@ -27,7 +25,7 @@ return {
 						end,
 					})
 				end
-			end
+			end,
 		})
-	end
+	end,
 }

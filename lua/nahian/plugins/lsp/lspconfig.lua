@@ -20,17 +20,19 @@ return {
 		keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
 		-- used to enable autocompletion (assign to every lsp server config)
-		local cap = cmp.default_capabilities()
-		local web_cap = vim.lsp.protocol.make_client_capabilities()
-		web_cap.textDocument.completion.completionItem.snippetSupport = true
+		--		local capabilities = cmp.default_capabilities()
 		lspconfig["lua_ls"].setup({})
-		lspconfig["pyright"].setup({
-			capabilities = cap,
+		--Enable (broadcasting) snippet capability for completion
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+		lspconfig["html"].setup({
+			capabilities = capabilities,
 		})
-		lspconfig["html"].setup({ capabilities = web_cap })
-		lspconfig["cssls"].setup({ capabilities = web_cap })
-		lspconfig["tsserver"].setup({
-			capabilities = cap,
+		lspconfig["cssls"].setup({
+			capabilities = capabilities,
+		})
+		lspconfig["eslint"].setup({
+			capabilities = capabilities,
 		})
 	end,
 }
