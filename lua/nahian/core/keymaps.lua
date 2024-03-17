@@ -129,7 +129,7 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
--- telescope
+-- related to searching, git, finding files, telescope etc
 wk.register({
     s = {
         name = "Search",
@@ -141,5 +141,6 @@ wk.register({
     g = {
         name = "Git",
         c = { "<cmd>Telescope git_commits<cr>", "List of Git commits" },
+        p = { ":Gitsigns preview_hunk<cr>", "Shows you the changes on yellow bar" },
     },
 }, { prefix = "<leader>", silent = false, noremap = false })
