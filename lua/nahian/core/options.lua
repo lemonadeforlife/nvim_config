@@ -3,6 +3,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+-- python provider
+vim.g.python3_host_prog = "/home/nahian/.config/nvim/.nvim-venv/bin/python3"
+
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.conceallevel = 0 -- for `` visible in markdown
 vim.opt.ignorecase = true
