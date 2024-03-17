@@ -5,6 +5,7 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 local keymaps = vim.keymap.set
+local wk = require("which-key")
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 
