@@ -1,7 +1,4 @@
-if vim.g.vscode then
-	--VSCode Exntesion
-else
-	-- Ordinary NeoVim
-	require("nahian.core")
-	require("nahian.store")
-end
+require("nahian.core")
+require("nahian.store")
+require("lazy").setup({ import = "nahian.plugins" })
+require("nahian.lsp")
