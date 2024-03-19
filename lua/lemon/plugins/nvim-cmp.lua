@@ -12,5 +12,6 @@ return {
 			dependencies = { "rafamadriz/friendly-snippets" }, -- source for snippets
 		}, -- source snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocomplete
+		"onsails/lspkind.nvim", -- vscode-like pictograms for neovim lsp completion items
 	},
 }
