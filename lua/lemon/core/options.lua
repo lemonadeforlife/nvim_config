@@ -12,10 +12,15 @@ vim.opt.ignorecase = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.showtabline = 2 -- always show tabline
 vim.opt.smartcase = true
-vim.opt.smartindent = true
+vim.opt.smartindent = false
 vim.opt.expandtab = true -- convert tabs into spaces
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+if vim.cmd([[echo &filetype]]) == "python" then
+	vim.opt.shiftwidth = 4
+	vim.opt.tabstop = 4
+else
+	vim.opt.shiftwidth = 2
+	vim.opt.tabstop = 2
+end
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = false
