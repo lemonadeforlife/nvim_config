@@ -1,4 +1,5 @@
 return {
-    "nvimtools/none-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
+	"nvimtools/none-ls.nvim",
+	event = "BufEnter",
+	dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
 }
