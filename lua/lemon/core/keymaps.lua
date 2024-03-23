@@ -74,28 +74,28 @@ keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts)
 
 -- No highlight
 wk.register({
-    ["<leader>h"] = { "<cmd>noh<CR>", "Remove highlight" },
+	["<leader>h"] = { "<cmd>noh<CR>", "Remove highlight" },
 })
 
 -- Quit NeoVim
 wk.register({
-    x = {
-        name = "Neovim",
-        a = { "<cmd>qa<cr>", "Quit all open files without saving" },
-        s = { "<cmd>w<cr>", "Save" },
-        x = { "<cmd>x<cr>", "Save & Exit" },
-        b = { "<cmd>bdelete!<cr>", "Close Buffer Window" },
-    },
+	x = {
+		name = "Neovim",
+		a = { "<cmd>qa<cr>", "Quit all open files without saving" },
+		s = { "<cmd>w<cr>", "Save" },
+		x = { "<cmd>x<cr>", "Save & Exit" },
+		b = { "<cmd>bdelete!<cr>", "Close Buffer Window" },
+	},
 }, { prefix = "<leader>" })
 
 -- bufferline
 wk.register({
-    b = {
-        name = "Buffers",
-        l = { "<cmd>BufferLineCloseRight<cr>", "Close Right Side Buffer" },
-        h = { "<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer" },
-        f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
-    },
+	b = {
+		name = "Buffers",
+		l = { "<cmd>BufferLineCloseRight<cr>", "Close Right Side Buffer" },
+		h = { "<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer" },
+		f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
+	},
 }, { prefix = "<leader>" })
 
 -- bufferline
@@ -109,38 +109,52 @@ wk.register({ ["<leader>t"] = "Terminal" })
 
 -- Fold
 wk.register({
-    f = {
-        name = "fold",
-        c = { "<cmd>foldclose<cr>", "Fold Code" },
-        o = { "<cmd>foldopen<cr>", "Unfold Code" },
-    },
+	f = {
+		name = "fold",
+		c = { "<cmd>foldclose<cr>", "Fold Code" },
+		o = { "<cmd>foldopen<cr>", "Unfold Code" },
+	},
 }, { prefix = "<leader>" })
 
 -- LSP Related Shortcuts: Trouble, Mason etc
 wk.register({
-    l = {
-        name = "LSP",
-        t = { "<cmd>TroubleToggle<cr>", "List of troubles from LSP" },
-        m = { "<cmd>Mason<cr>", "Mason Dashboard" },
-        n = { "<cmd>NullLsInfo<cr>", "Null Info Dashboard" },
-        i = { "<cmd>LspInfo<cr>", "Lsp Info Dashboard" },
-        l = { "<cmd>LspLog<cr>", "Lsp Log Dashboard" },
-        c = { "<cmd>CmpStatus<cr>", "Completion Status" },
-    },
+	l = {
+		name = "LSP",
+		t = { "<cmd>TroubleToggle<cr>", "List of troubles from LSP" },
+		m = { "<cmd>Mason<cr>", "Mason Dashboard" },
+		n = { "<cmd>NullLsInfo<cr>", "Null Info Dashboard" },
+		i = { "<cmd>LspInfo<cr>", "Lsp Info Dashboard" },
+		l = { "<cmd>LspLog<cr>", "Lsp Log Dashboard" },
+		c = { "<cmd>CmpStatus<cr>", "Completion Status" },
+		p = { "<cmd>Lazy<cr>", "Opens up the plugin manager" },
+	},
 }, { prefix = "<leader>" })
 
 -- related to searching, git, finding files, telescope etc
 wk.register({
-    s = {
-        name = "Search",
-        f = { "<cmd>Telescope find_files<cr>", "Search for File for current working workspace" },
-        s = { "<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory" },
-        h = { "<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your" },
-        g = { "<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore" },
-    },
-    g = {
-        name = "Git",
-        c = { "<cmd>Telescope git_commits<cr>", "List of Git commits" },
-        p = { ":Gitsigns preview_hunk<cr>", "Shows you the changes on yellow bar" },
-    },
+	s = {
+		name = "Search",
+		f = { "<cmd>Telescope find_files<cr>", "Search for File for current working workspace" },
+		s = { "<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory" },
+		h = { "<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your" },
+		g = { "<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore" },
+	},
+	g = {
+		name = "Git",
+		c = { "<cmd>Telescope git_commits<cr>", "List of Git commits" },
+		p = { ":Gitsigns preview_hunk<cr>", "Previews Git blame on yellow bar" },
+	},
+}, { prefix = "<leader>", silent = false, noremap = false })
+
+-- Noice
+wk.register({
+	n = {
+		name = "Noice",
+		h = { "<cmd>Noice history<cr>", "Shows the message history" },
+		l = { "<cmd>Noice last<cr>", "shows the last message in a popup" },
+		d = { "<cmd>Noice dismiss<cr>", "Dismiss all visible message" },
+		e = { "<cmd>Noice errors<cr>", "shows the error messages in a split. Last errors on top" },
+		t = { "<cmd>Noice telescope<cr>", "opens message history in Telescope" },
+		s = { "<cmd>Noice stats<cr>", "shows debugging stats" },
+	},
 }, { prefix = "<leader>", silent = false, noremap = false })
