@@ -80,11 +80,12 @@ wk.register({
 -- Quit NeoVim
 wk.register({
 	x = {
-		name = "Neovim",
+		name = "Save / Quite",
 		a = { "<cmd>qa<cr>", "Quit all open files without saving" },
 		s = { "<cmd>w<cr>", "Save" },
 		x = { "<cmd>x<cr>", "Save & Exit" },
 		b = { "<cmd>bdelete!<cr>", "Close Buffer Window" },
+		q = { "<cmd>q!<cr>", "Force to quite without saving any changes" },
 	},
 }, { prefix = "<leader>" })
 
@@ -158,3 +159,12 @@ wk.register({
 		s = { "<cmd>Noice stats<cr>", "shows debugging stats" },
 	},
 }, { prefix = "<leader>", silent = false, noremap = false })
+
+-- Sessions
+wk.register({
+	s = {
+		name = "Sessions",
+		r = { "<cmd>SessionRestore<cr>", "Restore the current session for cwd" },
+		s = { "<cmd>SessionSave<cr>", "Save the current session for cwd" },
+	},
+}, { prefix = "<leader>" })
