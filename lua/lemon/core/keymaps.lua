@@ -95,7 +95,7 @@ wk.register({
 		name = "Buffers",
 		l = { "<cmd>BufferLineCloseRight<cr>", "Close Right Side Buffer" },
 		h = { "<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer" },
-		f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
+		-- f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
 	},
 }, { prefix = "<leader>" })
 
