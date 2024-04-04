@@ -12,15 +12,17 @@ vim.opt.ignorecase = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.showtabline = 2 -- always show tabline
 vim.opt.smartcase = true
-vim.opt.smartindent = false
+vim.opt.smartindent = true
 vim.opt.expandtab = true -- convert tabs into spaces
-if vim.cmd([[echo &filetype]]) == "python" then
-	vim.opt.shiftwidth = 4
-	vim.opt.tabstop = 4
-else
-	vim.opt.shiftwidth = 2
-	vim.opt.tabstop = 2
-end
+-- if vim.cmd([[echo &filetype]]) == "python" then
+-- 	vim.opt.shiftwidth = 4
+-- 	vim.opt.tabstop = 4
+-- else
+-- 	vim.opt.shiftwidth = 2
+-- 	vim.opt.tabstop = 2
+-- end
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = false
@@ -28,3 +30,5 @@ vim.opt.guifont = "DejaVuSansM Nerd Font"
 -- Setting space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.opt.splitright = true
+vim.opt.splitbelow = true
