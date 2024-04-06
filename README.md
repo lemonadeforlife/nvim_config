@@ -16,7 +16,7 @@
 - [Uninstall](#uninstall)
 
 ## Installation
-#### NeoVim
+#### Neovim
 ```shell
 curl --output-dir "~/Downloads" -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 tar -C ~/opt -xzf ~/Downloads/nvim-linux64.tar.gz
@@ -27,12 +27,12 @@ sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 ```
+If you don't wth is going on, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file  in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
+Finally since we don't want to screw our muscle memory & using improved version of vim. We are using Neovim as vim alternative by using `update-alternatives` command.
 #### Configuration
 ```shell
-git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && nvim
+git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 ```
-- Run `:MasonInstallAll` command after lazy.nvim finishes downloading plugins
-- Run `Lazy Sync` command after Mason Install
 
 ## Feature
 
