@@ -1,6 +1,9 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" alt="Neovim">
-  <a src="https://neovim.io/doc/user/">Documentation</a>
+<a href="https://github.com/neovim/neovim" target="_blank">
+<img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" alt="Neovim">
+</a>
+<br>
+<a href="https://neovim.io/doc/user/" target="_blank">Read the Doc! 🔫</a>
 </h1>
 
 ### Table of Content
@@ -9,6 +12,7 @@
 	- [Configuration](#configuration)
 - [Feature](#feature)
 - [Plugins](#plugins)
+- [Resources](#resources)
 - [Uninstall](#uninstall)
 
 ## Installation
@@ -33,6 +37,8 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && nvim
 ## Feature
 
 ## Plugins
+
+## Resources
 
 ## Uninstall
 ```shell
