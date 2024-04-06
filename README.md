@@ -9,13 +9,19 @@
 	- [Configuration](#configuration)
 - [Feature](#feature)
 - [Plugins](#plugins)
+- [Uninstall](#uninstall)
 
 ## Installation
 #### NeoVim
 ```shell
 curl --output-dir "~/Downloads" -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-tar -xf ~/Downloads/nvim-linux64.tar.gz
-cp -r ~/Downloads/nvim-linux64/* ~/.local/
+tar -C ~/opt -xzf ~/Downloads/nvim-linux64.tar.gz
+export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
+sudo update-alternatives --install /usr/bin/ex ex "${CUSTOM_NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vi vi "${CUSTOM_NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 ```
 #### Configuration
 ```shell
@@ -27,3 +33,17 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && nvim
 ## Feature
 
 ## Plugins
+
+## Uninstall
+```shell
+# Uninstall Neovim
+sudo update-alternatives --remove ex /opt/nvim-linux64/bin/nvim
+sudo update-alternatives --remove vi /opt/nvim-linux64/bin/nvim
+sudo update-alternatives --remove view /opt/nvim-linux64/bin/nvim
+sudo update-alternatives --remove vim /opt/nvim-linux64/bin/nvim
+sudo update-alternatives --remove vimdiff /opt/nvim-linux64/bin/nvim
+sudo rm -rf /opt/nvim-linux64
+
+# Uninstall configuration
+sudo rm -rf ~/.config/nvim
+```
