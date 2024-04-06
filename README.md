@@ -35,7 +35,16 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 ```
 
 ## Feature
+- **Blazingly Fast⚡️** <br>
+![image](https://github.com/lemonadeforlife/nvim_config/assets/61580921/2c043960-5a43-4b45-93b0-28864b394b78)
 
+- **Has Vim Motion to write code blazingly fast⚡️** <br>
+![demo_neovim_motion](https://github.com/lemonadeforlife/nvim_config/assets/61580921/30a5bd2b-061a-415e-b37d-17b49927bdba)
+
+- **Has better customization** <br>
+  <img src="https://github.com/lemonadeforlife/nvim_config/assets/61580921/af16bf20-fc5c-4e40-96fe-ada131fb2262" width="790">
+
+- **Has blazingly fast fuzzy finder whether it's code or file ⚡️**
 ## Plugins
 
 ## Resources
