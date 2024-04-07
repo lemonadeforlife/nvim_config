@@ -103,11 +103,9 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
   </td>
   <td>Git plugins</td>
   </tr>
-  <tr>
-    <td>Comments</td>
-  </tr>
 </table>
-These are the core plugin that are essential and bring functionality and reason for using neovim as well. There are several plugins I have installed but I don't use on daily basis and planning to change it in future.
+These are the core plugin that are essential and bring functionality and reason for using neovim as well. There are more but currently I'm out breath writing this sh*t...
+
 
 ## Resources
 - ![Basic Vim Motion by NycRat](https://youtu.be/hsFnJgmLOLk)
