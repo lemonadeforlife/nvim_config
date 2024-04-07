@@ -44,8 +44,55 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 - **Has better customization** <br>
   <img src="https://github.com/lemonadeforlife/nvim_config/assets/61580921/af16bf20-fc5c-4e40-96fe-ada131fb2262" width="790">
 
-- **Has blazingly fast fuzzy finder whether it's code or file ⚡️**
+- **Has blazingly fast ⚡️ fuzzy finder whether it's code, file or docs** <br>
+![fuzzy_out](https://github.com/lemonadeforlife/nvim_config/assets/61580921/9d1486d8-b90e-4976-b647-fb360d62eb81)
+
+
+- **Has LSP Supports and of course it's blazingly fast ⚡️** <br>
+![LSP](https://github.com/lemonadeforlife/nvim_config/assets/61580921/7c5ce12a-9de1-4ea2-851e-fe9d46d579c3)
+
+
 ## Plugins
+<table>
+  <th>Name</th>
+  <th>Usage</th>
+  <tr>
+    <td><a href="https://github.com/folke/lazy.nvim">Lazy</a></td>
+    <td>Plugin Manager</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/nvim-tree/nvim-tree.lua">nvim-tree</a></td>
+    <td>A file explorer tree for neovim written in lua </td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a></td>
+    <td>Fuzzy finder</td>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        <li><a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></li>
+        <li><a href="https://github.com/L3MON4D3/LuaSnip">LuaSnip</a></li>
+        <li><a href="https://github.com/saadparwaiz1/cmp_luasnip">cmp_luasnip</a></li>
+        <li><a href="https://github.com/onsails/lspkind.nvim">lspkind.nvim</a></li>
+      </ul>
+    </td>
+    <td>A completion plugin for neovim coded in Lua.</td>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        <li><a href="https://github.com/williamboman/mason.nvim">mason.nvim</a></li>
+        <li><a href="https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim">mason-tool-installer.nvim</a></li>
+        <li><a href="https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim">mason-tool-installer.nvim</a></li>
+        <li><a href="https://github.com/williamboman/mason-lspconfig.nvim">mason-lspconfig.nvim</a></li>
+        <li><a href="https://github.com/nvimtools/none-ls.nvim">none-ls</a></li>
+        <li><a href="https://github.com/neovim/nvim-lspconfig">lspconfig</a></li>
+      </ul>
+    </td>
+    <td>LSP for Neovim</td>
+  </tr>
+</table>
 
 ## Resources
 
