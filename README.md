@@ -77,7 +77,7 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
         <li><a href="https://github.com/onsails/lspkind.nvim">lspkind.nvim</a></li>
       </ul>
     </td>
-    <td>A completion plugin for neovim coded in Lua.</td>
+    <td>A completion plugins for neovim in Lua</td>
   </tr>
   <tr>
     <td>
@@ -90,7 +90,7 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
         <li><a href="https://github.com/neovim/nvim-lspconfig">lspconfig</a></li>
       </ul>
     </td>
-    <td>LSP for Neovim</td>
+    <td>A LSP plugins for neovim in lua</td>
   </tr>
 </table>
 
