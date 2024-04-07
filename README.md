@@ -27,7 +27,7 @@ sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 ```
-If you don't wth is going on, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file  in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
+If you're lost in this commands, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file  in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
 Finally since we don't want to screw our muscle memory & using improved version of vim. We are using Neovim as vim alternative by using `update-alternatives` command.
 #### Configuration
 ```shell
