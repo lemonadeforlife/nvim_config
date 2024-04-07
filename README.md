@@ -90,7 +90,9 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
         <li><a href="https://github.com/neovim/nvim-lspconfig">lspconfig</a></li>
       </ul>
     </td>
-    <td>A LSP plugins for neovim in lua. `Mason` install, manage & maintain the necessary lsp packages. `lspconfig` helps to configure lsp. Finally `none-ls`, It helps to configure the formatting & linting</td>
+    <td>
+	    A LSP plugins for neovim in lua. <code>Mason</code> install, manage & maintain the necessary lsp packages. <code>lspconfig</code> helps to configure lsp. Finally <code>none-ls</code>, It helps to configure the formatting & linting
+    </td>
   </tr>
 </table>
 
