@@ -26,6 +26,7 @@ return {
 				"git_rebase",
 				"gitattributes",
 				"gitignore",
+				"markdown",
 			},
 			auto_install = true,
 			sync_install = false,
