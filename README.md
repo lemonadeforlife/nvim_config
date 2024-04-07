@@ -94,9 +94,28 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 	    A LSP plugins for neovim in lua. <code>Mason</code> install, manage & maintain the necessary lsp packages. <code>lspconfig</code> helps to configure lsp. Finally <code>none-ls</code>, It helps to configure the formatting & linting
     </td>
   </tr>
+  <tr>
+  <td>
+   	<ul>
+	    <li><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></li>
+	    <li><a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a></li>
+	  </ul>
+  </td>
+  <td>Git plugins</td>
+  </tr>
+  <tr>
+    <td>Comments</td>
+  </tr>
 </table>
+These are the core plugin that are essential and bring functionality and reason for using neovim as well. There are several plugins I have installed but I don't use on daily basis and planning to change it in future.
 
 ## Resources
+- ![Basic Vim Motion by NycRat](https://youtu.be/hsFnJgmLOLk)
+- ![Advance Vim Motion by ThePrimeagen](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) <br>
+  OG Developer & neovim user who writes code blazingly fast
+
+- ![TJ DeVries YouTube Channel](https://www.youtube.com/@teej_dv) <br>
+  Author of telescope plugin & one of the core developer of neovim. Uploads fantastics video about neovim
 
 ## Uninstall
 ```shell
