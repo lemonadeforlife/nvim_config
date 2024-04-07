@@ -15,6 +15,10 @@ local on_attach = function(_, _)
 	keymap("n", "K", vim.lsp.buf.hover, {})
 end
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	-- delay update diagnostics
+	update_in_insert = true,
+})
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 lspconfig["lua_ls"].setup({
