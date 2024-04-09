@@ -17,18 +17,29 @@
 
 ## Installation
 #### Neovim
-```shell
+1. Download neovim release file to `Download` directory
+```bash
 curl --output-dir "~/Downloads" -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+```
+2. Extract file to `/opt` for globally access neovim
+```bash
 tar -C ~/opt -xzf ~/Downloads/nvim-linux64.tar.gz
+```
+3. Adding neovim to editor & replacing vim with neovim
+```bash
 export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
+sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux64/bin/nvim 01
 sudo update-alternatives --install /usr/bin/ex ex "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vi vi "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 ```
-If you're lost in this commands, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file  in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
+>[!note]
+>If you're lost in this commands, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file  in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
 Finally since we don't want to screw our muscle memory & using improved version of vim. We are using Neovim as vim alternative by using `update-alternatives` command.
+<br>
+
 #### Configuration
 ```shell
 git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
@@ -116,13 +127,15 @@ These are the core plugin that are essential and bring functionality and reason 
   Author of telescope plugin & one of the core developer of neovim. Uploads fantastics video about neovim
 
 ## Uninstall
-```shell
+```bash
 # Uninstall Neovim
-sudo update-alternatives --remove ex /opt/nvim-linux64/bin/nvim
-sudo update-alternatives --remove vi /opt/nvim-linux64/bin/nvim
-sudo update-alternatives --remove view /opt/nvim-linux64/bin/nvim
-sudo update-alternatives --remove vim /opt/nvim-linux64/bin/nvim
-sudo update-alternatives --remove vimdiff /opt/nvim-linux64/bin/nvim
+export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
+sudo update-alternatives --remove editor "${CUSTOM_NVIM_PATH}"
+sudo update-alternatives --remove ex "${CUSTOM_NVIM_PATH}"
+sudo update-alternatives --remove vi "${CUSTOM_NVIM_PATH}"
+sudo update-alternatives --remove view "${CUSTOM_NVIM_PATH}"
+sudo update-alternatives --remove vim "${CUSTOM_NVIM_PATH}"
+sudo update-alternatives --remove vimdiff "${CUSTOM_NVIM_PATH}"
 sudo rm -rf /opt/nvim-linux64
 
 # Uninstall configuration
