@@ -23,7 +23,7 @@ curl --output-dir "~/Downloads" -LO https://github.com/neovim/neovim/releases/la
 ```
 2. Extract file to `/opt` for globally access neovim
 ```bash
-tar -C ~/opt -xzf ~/Downloads/nvim-linux64.tar.gz
+tar -C /opt -xzf ~/Downloads/nvim-linux64.tar.gz
 ```
 3. Adding neovim to editor & replacing vim with neovim
 ```bash
