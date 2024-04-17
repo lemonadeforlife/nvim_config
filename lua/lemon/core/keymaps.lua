@@ -22,12 +22,6 @@ keymap("", "<Space>", "<Nop>", opts)
 -- ######## Normal ######
 -- #####################
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
 -- Window Split
 keymap("n", "<leader>v", ":vsplit<cr>", opts)
 -- Resize with arrows
@@ -144,7 +138,7 @@ wk.register({
 	s = {
 		name = "Search",
 		f = { "<cmd>Telescope find_files<cr>", "Search for File for current working workspace" },
-		s = { "<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory" },
+		l = { "<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory" },
 		h = { "<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your" },
 		g = { "<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore" },
 	},
@@ -168,11 +162,22 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
--- Sessions
+-- Sessions / Writing & Reading files
 wk.register({
 	s = {
-		name = "Sessions",
+		name = "Sessions / Write & Read files",
 		r = { "<cmd>SessionRestore<cr>", "Restore the current session for cwd" },
 		s = { "<cmd>SessionSave<cr>", "Save the current session for cwd" },
+		w = { "<cmd>SudaWrite<cr>", "Write the readonly file" },
+		R = { "<cmd>SudaRead<cr>", "Open unreadable file" },
 	},
 }, { prefix = "<leader>" })
+
+-- Better Tmux Window & Buffer navigation
+wk.register({
+	["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>" },
+	["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>" },
+	["<C-k>"] = { "<cmd>TmuxNavigateUp<cr>" },
+	["<C-l>"] = { "<cmd>TmuxNavigateRight<cr>" },
+	["<C-\\>"] = { "<cmd>TmuxNavigatePrevious<cr>" },
+})
