@@ -18,6 +18,7 @@ return {
 			time_formats = {
 				notification = "%I:%M %p",
 			},
+			top_down = false,
 		})
 		require("noice").setup({
 			format = {
