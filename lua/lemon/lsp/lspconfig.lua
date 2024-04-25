@@ -1,7 +1,8 @@
-require("neodev").setup({})
+require("neodev").setup()
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+-- attaching keymaps for lsp's
 local on_attach = function(_, _)
 	local telescope = require("telescope.builtin")
 	local keymap = vim.keymap.set
@@ -22,6 +23,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 })
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
+
+-- lsp configs
 lspconfig["lua_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
