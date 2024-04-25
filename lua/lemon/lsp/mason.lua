@@ -3,18 +3,19 @@ local mason_lspconfig = require("mason-lspconfig")
 local mason_auto = require("mason-tool-installer")
 mason.setup()
 mason_auto.setup({
-    ensure_installed = {
-        "lua_ls",
-        "pyright",
-        "black",
-        "flake8",
-        "html",
-        "cssls",
-        "tsserver",
-        "eslint_d",
-        "prettier",
-    },
+	ensure_installed = {
+		"lua_ls",
+		"pyright",
+		"black",
+		"flake8",
+		"html",
+		"cssls",
+		"tsserver",
+		"eslint",
+		"prettier",
+	},
+	auto_update = true,
 })
 mason_lspconfig.setup({
-    automatic_installation = true,
+	automatic_installation = true,
 })
