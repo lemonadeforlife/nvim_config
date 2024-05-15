@@ -29,13 +29,29 @@ lspconfig["lua_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+lspconfig["bashls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "sh", "zsh" },
+})
 lspconfig["html"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	init_options = {
+		configurationSection = { "html", "css", "javascript" },
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+		provideFormatter = true,
+	},
 })
 lspconfig["cssls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	init_options = {
+		provideFormatter = true,
+	},
 })
 lspconfig["pyright"].setup({
 	on_attach = on_attach,
