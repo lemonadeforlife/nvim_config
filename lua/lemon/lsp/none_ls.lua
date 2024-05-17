@@ -12,17 +12,18 @@ null_ls.setup({
 		formatting.prettierd,
 
 		-- javascript
-		require("none-ls.diagnostics.eslint_d"),
+		require("none-ls.diagnostics.eslint"),
+		require("none-ls.code_actions.eslint"),
+
 		-- lua formatting
 		formatting.stylua,
 
-		-- bash
+		-- bash/zsh
 		require("none-ls-shellcheck.diagnostics"),
 		require("none-ls-shellcheck.code_actions"),
-		null_ls.builtins.formatting.shfmt.with({
-			filetypes = { "sh", "zsh" },
-		}),
+		require("none-ls.formatting.beautysh"),
 	},
+	update_in_insert = true,
 	-- format on save
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
