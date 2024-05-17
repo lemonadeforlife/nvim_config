@@ -9,7 +9,7 @@ null_ls.setup({
 		require("none-ls.diagnostics.flake8"),
 
 		-- Web Dev Formatting
-		formatting.prettier,
+		formatting.prettierd,
 
 		-- javascript
 		require("none-ls.diagnostics.eslint_d"),
