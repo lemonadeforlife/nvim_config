@@ -26,3 +26,33 @@ ls.add_snippets("yaml", {
 		)
 	),
 })
+
+ls.add_snippets("html", {
+	s(
+		"but.",
+		fmt(
+			[[
+<button class="{}">{}</button>
+  ]],
+			{
+				i(1),
+				i(0),
+			}
+		)
+	),
+})
+
+ls.add_snippets("html", {
+	s(
+		"but#",
+		fmt(
+			[[
+<button id="{}">{}</button>
+  ]],
+			{
+				i(1),
+				i(0),
+			}
+		)
+	),
+})
