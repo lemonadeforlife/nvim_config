@@ -5,12 +5,15 @@ mason.setup()
 mason_auto.setup({
 	ensure_installed = {
 		"lua_ls",
+		-- bash/zsh
 		"bashls",
-		"shfmt",
+		"beautysh",
 		"shellcheck",
+		-- python
 		"pyright",
 		"black",
 		"flake8",
+		-- web dev stuff
 		"html",
 		"cssls",
 		"tsserver",
