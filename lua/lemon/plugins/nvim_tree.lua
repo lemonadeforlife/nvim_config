@@ -18,6 +18,12 @@ return {
 					},
 				},
 			},
+			update_focused_file = {
+				enable = true,
+				update_root = {
+					enable = true,
+				},
+			},
 		})
 		vim.cmd([[hi NvimTreeIndentMarker guifg=#73daca]])
 	end,
