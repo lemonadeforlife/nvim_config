@@ -32,10 +32,11 @@ ls.add_snippets("html", {
 		"but.",
 		fmt(
 			[[
-<button class="{}">{}</button>
+<button class="{}">{}</button>{}
   ]],
 			{
 				i(1),
+				i(2),
 				i(0),
 			}
 		)
@@ -47,10 +48,11 @@ ls.add_snippets("html", {
 		"but#",
 		fmt(
 			[[
-<button id="{}">{}</button>
+<button id="{}">{}</button>{}
   ]],
 			{
 				i(1),
+				i(2),
 				i(0),
 			}
 		)
