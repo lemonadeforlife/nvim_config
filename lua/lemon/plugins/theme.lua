@@ -5,7 +5,10 @@ return {
 	config = function()
 		require("tokyonight").setup({
 			style = "moon",
+			transparent = false,
+			dim_inactive = true,
+			lualine_bold = true,
 		})
-		vim.cmd([[colorscheme tokyonight-night]])
+		vim.cmd([[colorscheme tokyonight]])
 	end,
 }
