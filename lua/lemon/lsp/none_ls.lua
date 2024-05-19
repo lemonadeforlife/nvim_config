@@ -3,6 +3,8 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
+	-- debounce = 500,
+	update_in_insert = true,
 	sources = {
 		-- python
 		formatting.black,
@@ -12,8 +14,23 @@ null_ls.setup({
 		formatting.prettierd,
 
 		-- javascript
-		require("none-ls.diagnostics.eslint"),
-		require("none-ls.code_actions.eslint"),
+		require("none-ls.diagnostics.eslint").with({
+			config = {
+				settings = {
+					format = false,
+				},
+			},
+			diagnostic_config = {
+				update_in_insert = true,
+			},
+		}),
+		require("none-ls.code_actions.eslint").with({
+			config = {
+				settings = {
+					format = false,
+				},
+			},
+		}),
 
 		-- lua formatting
 		formatting.stylua,
@@ -23,7 +40,6 @@ null_ls.setup({
 		require("none-ls-shellcheck.code_actions"),
 		require("none-ls.formatting.beautysh"),
 	},
-	update_in_insert = true,
 	-- format on save
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
