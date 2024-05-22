@@ -100,7 +100,17 @@ wk.register({
 		h = { "<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer" },
 		-- f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
 	},
-}, { prefix = "<leader>" })
+	["br"] = {
+		function()
+			if vim.opt.relativenumber == false then
+				vim.cmd([[set relativenumber]])
+			else
+				vim.cmd([[set relativenumber!]])
+			end
+		end,
+		"Toggle Hybrid Number",
+	},
+}, { prefix = "<leader>", noremap = true, silent = true })
 
 wk.register({
 	["<C-p>"] = { "<cmd>BufferLineTogglePin<CR>", "Toggle Pin a Buffer" },
@@ -147,6 +157,7 @@ wk.register({
 		name = "Git",
 		c = { "<cmd>Telescope git_commits<cr>", "List of Git commits" },
 		p = { ":Gitsigns preview_hunk<cr>", "Previews Git blame on yellow bar" },
+		d = { "<cmd>Gvdiffsplit<cr>", "Preview Git Diff" },
 	},
 }, { prefix = "<leader>" })
 
@@ -165,15 +176,14 @@ wk.register({
 
 -- Sessions / Writing & Reading files
 wk.register({
-	s = {
-		name = "Sessions / Write & Read files",
+	S = {
+		name = "Sessions & Write readonly file",
 		r = { "<cmd>SessionRestore<cr>", "Restore the current session for cwd" },
 		s = { "<cmd>SessionSave<cr>", "Save the current session for cwd" },
 		w = { "<cmd>SudaWrite<cr>", "Write the readonly file" },
 		R = { "<cmd>SudaRead<cr>", "Open unreadable file" },
 	},
 }, { prefix = "<leader>" })
-
 -- Better Tmux Window & Buffer navigation
 wk.register({
 	["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>" },
