@@ -10,6 +10,12 @@ null_ls.setup({
 		formatting.black,
 		require("none-ls.diagnostics.flake8"),
 
+		-- C/C++
+		require("none-ls.diagnostics.cpplint"), --diagnostics
+		formatting.clang_format.with({
+			filetypes = { "c", "cpp", "cs" },
+		}), -- formatting
+
 		-- Web Dev Formatting
 		formatting.prettierd,
 
