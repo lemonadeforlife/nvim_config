@@ -9,6 +9,9 @@ mason_auto.setup({
 		"bashls",
 		"beautysh",
 		"shellcheck",
+		-- C/C++
+		"clangd",
+		"clang-format",
 		-- python
 		"pyright",
 		"black",
