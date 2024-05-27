@@ -121,15 +121,6 @@ wk.register({
 	["<S-h>"] = { "<cmd>bprevious<cr>", "Navigate buffer to right" },
 })
 
--- Fold
-wk.register({
-	f = {
-		name = "fold",
-		c = { "<cmd>foldclose<cr>", "Fold Code" },
-		o = { "<cmd>foldopen<cr>", "Unfold Code" },
-	},
-}, { prefix = "<leader>" })
-
 -- LSP Related Shortcuts: Trouble, Mason etc
 wk.register({
 	l = {
