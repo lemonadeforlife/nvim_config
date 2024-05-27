@@ -3,6 +3,7 @@ local mason_lspconfig = require("mason-lspconfig")
 local mason_auto = require("mason-tool-installer")
 mason.setup()
 mason_auto.setup({
+<<<<<<< HEAD
   ensure_installed = {
     "lua_ls",
     -- bash/zsh
