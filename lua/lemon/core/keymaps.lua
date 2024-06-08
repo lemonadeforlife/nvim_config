@@ -144,14 +144,18 @@ wk.register({
 		h = { "<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your" },
 		g = { "<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore" },
 	},
+	-- Git
 	g = {
 		name = "Git",
 		c = { "<cmd>Telescope git_commits<cr>", "List of Git commits" },
 		p = { ":Gitsigns preview_hunk<cr>", "Previews Git blame on yellow bar" },
 		d = { "<cmd>Gvdiffsplit<cr>", "Preview Git Diff" },
+		l = { "<cmd>GitSigns toggle_linehl<cr>", "Highlight Line" },
 	},
 }, { prefix = "<leader>" })
-
+wk.register({
+	["<C-l>"] = { "<cmd>Gitsigns toggle_linehl<cr>", "Highlight Line in Insert Mode" },
+}, { mode = "i" })
 -- Noice
 wk.register({
 	n = {
