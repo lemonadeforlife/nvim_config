@@ -4,11 +4,11 @@ local formatting = null_ls.builtins.formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- debounce = 500,
-	update_in_insert = true,
+	-- update_in_insert = true,
 	sources = {
 		-- python
 		formatting.black,
-		require("none-ls.diagnostics.flake8"),
+		-- require("none-ls.diagnostics.flake8"),
 
 		-- C/C++
 		formatting.clang_format.with({
