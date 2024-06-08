@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- python provider
-vim.g.python3_host_prog = "/home/nahian/.config/nvim/.nvim-venv/bin/python3"
+vim.g.python3_host_prog = "/home/nahian/.pyenv/versions/.nvim-venv/bin/python"
 
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.conceallevel = 0 -- for `` visible in markdown
