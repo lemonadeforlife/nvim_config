@@ -7,25 +7,34 @@
 </h1>
 
 ### Table of Content
+
 - [Installation](#installation)
-	- [NeoVim](#neovim)
-	- [Configuration](#configuration)
+  - [NeoVim](#neovim)
+  - [Configuration](#configuration)
+- [Update](#update)
 - [Feature](#feature)
 - [Plugins](#plugins)
 - [Resources](#resources)
 - [Uninstall](#uninstall)
 
 ## Installation
+
 #### Neovim
+
 1. Download neovim release file to `Download` directory
+
 ```bash
 curl --output-dir "~/Downloads" -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 ```
+
 2. Extract file to `/opt` for globally access neovim
+
 ```bash
 tar -C /opt -xzf ~/Downloads/nvim-linux64.tar.gz
 ```
+
 3. Adding neovim to editor & replacing vim with neovim
+
 ```bash
 export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
 sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux64/bin/nvim 01
@@ -35,35 +44,41 @@ sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 ```
->[!note]
->If you're lost in this commands, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file  in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
-Finally since we don't want to screw our muscle memory & using improved version of vim. We are using Neovim as vim alternative by using `update-alternatives` command.
-<br>
+
+> [!note]
+> If you're lost in this commands, then here is the explanation. Basically downloading through `curl` in your `Download` directory. Then we are passing `-xzf` for extracting that tar file in `/opt` directory for accessing the Neovim globally by passing `-C` arguement.
+> Finally since we don't want to screw our muscle memory & using improved version of vim. We are using Neovim as vim alternative by using `update-alternatives` command.
+> <br>
 
 #### Configuration
+
 ```shell
 git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 ```
 
+## Update
+
+For Updating and Maintaining neovim check this [repository](https://github.com/lemonadeforlife/update/)
+
 ## Feature
+
 - **Blazingly Fast⚡️** <br>
-![image](https://github.com/lemonadeforlife/nvim_config/assets/61580921/2c043960-5a43-4b45-93b0-28864b394b78)
+  ![image](https://github.com/lemonadeforlife/nvim_config/assets/61580921/2c043960-5a43-4b45-93b0-28864b394b78)
 
 - **Has Vim Motion to write code blazingly fast⚡️** <br>
-![demo_neovim_motion](https://github.com/lemonadeforlife/nvim_config/assets/61580921/30a5bd2b-061a-415e-b37d-17b49927bdba)
+  ![demo_neovim_motion](https://github.com/lemonadeforlife/nvim_config/assets/61580921/30a5bd2b-061a-415e-b37d-17b49927bdba)
 
 - **Has better customization** <br>
   <img src="https://github.com/lemonadeforlife/nvim_config/assets/61580921/af16bf20-fc5c-4e40-96fe-ada131fb2262" width="790">
 
 - **Has blazingly fast ⚡️ fuzzy finder whether it's code, file or docs** <br>
-![fuzzy_out](https://github.com/lemonadeforlife/nvim_config/assets/61580921/9d1486d8-b90e-4976-b647-fb360d62eb81)
-
+  ![fuzzy_out](https://github.com/lemonadeforlife/nvim_config/assets/61580921/9d1486d8-b90e-4976-b647-fb360d62eb81)
 
 - **Has LSP Supports and of course it's blazingly fast ⚡️** <br>
-![LSP](https://github.com/lemonadeforlife/nvim_config/assets/61580921/7c5ce12a-9de1-4ea2-851e-fe9d46d579c3)
-
+  ![LSP](https://github.com/lemonadeforlife/nvim_config/assets/61580921/7c5ce12a-9de1-4ea2-851e-fe9d46d579c3)
 
 ## Plugins
+
 <table>
   <th>Name</th>
   <th>Usage</th>
@@ -117,8 +132,8 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 </table>
 These are the core plugin that are essential and bring functionality and reason for using neovim as well. There are more but currently I'm out breath writing this sh*t...
 
-
 ## Resources
+
 - ![Basic Vim Motion by NycRat](https://youtu.be/hsFnJgmLOLk)
 - ![Advance Vim Motion by ThePrimeagen](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) <br>
   OG Developer & neovim user who writes code blazingly fast
@@ -127,6 +142,7 @@ These are the core plugin that are essential and bring functionality and reason 
   Author of telescope plugin & one of the core developer of neovim. Uploads fantastics video about neovim
 
 ## Uninstall
+
 ```bash
 # Uninstall Neovim
 export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
