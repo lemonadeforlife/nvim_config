@@ -22,6 +22,8 @@ mason_auto.setup({
 		"tsserver",
 		"eslint",
 		"prettier",
+		-- json
+		"jsonls",
 	},
 	auto_update = true,
 })
