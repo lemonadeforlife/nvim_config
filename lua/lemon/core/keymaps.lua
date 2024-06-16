@@ -132,6 +132,7 @@ wk.register({
 		l = { "<cmd>LspLog<cr>", "Lsp Log Dashboard" },
 		c = { "<cmd>CmpStatus<cr>", "Completion Status" },
 		p = { "<cmd>Lazy<cr>", "Opens up the plugin manager" },
+		s = { "<cmd>noa w<cr>", "Save file without any formatting" },
 	},
 }, { prefix = "<leader>" })
 
