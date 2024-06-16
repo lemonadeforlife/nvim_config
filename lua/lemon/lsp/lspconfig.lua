@@ -66,6 +66,9 @@ lspconfig["ts_ls"].setup({
     },
   },
 })
+lspconfig["jsonls"].setup({
+	capabilities = capabilities,
+})
 lspconfig["clangd"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
