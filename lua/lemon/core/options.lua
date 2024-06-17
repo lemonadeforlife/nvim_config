@@ -31,3 +31,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Smart Edit
+vim.g.suda_smart_edit = 1
