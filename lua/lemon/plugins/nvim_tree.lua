@@ -7,6 +7,7 @@ return {
 		require("nvim-tree").setup({
 			view = {
 				width = 40,
+				side = "right",
 			},
 			renderer = {
 				indent_markers = {
