@@ -1,5 +1,6 @@
 if vim.g.vscode then
 	require("lemon.core.vsoptions")
+	require("lemon.core.vskeymaps")
 else
 	require("lemon.core.options")
 	require("lemon.store")
