@@ -170,10 +170,10 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
--- Sessions / Writing & Reading files
+-- Sessions / Suda
 wk.register({
 	S = {
-		name = "Sessions & Write readonly file",
+		name = "Sessions & Suda",
 		r = { "<cmd>SessionRestore<cr>", "Restore the current session for cwd" },
 		s = { "<cmd>SessionSave<cr>", "Save the current session for cwd" },
 		w = { "<cmd>SudaWrite<cr>", "Write the readonly file" },
