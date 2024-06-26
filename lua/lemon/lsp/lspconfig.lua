@@ -23,6 +23,7 @@ end
 -- })
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- lsp configs
 lspconfig["lua_ls"].setup({
@@ -43,14 +44,13 @@ lspconfig["html"].setup({
 			css = true,
 			javascript = true,
 		},
-		provideFormatter = true,
+		-- provideFormatter = true,
 	},
 })
 lspconfig["cssls"].setup({
-	on_attach = on_attach,
 	capabilities = capabilities,
 	init_options = {
-		provideFormatter = true,
+		-- provideFormatter = true,
 	},
 })
 lspconfig["pyright"].setup({
@@ -60,11 +60,11 @@ lspconfig["pyright"].setup({
 lspconfig["tsserver"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	init_options = {
-		preferences = {
-			disableSuggestions = true,
-		},
-	},
+	-- init_options = {
+	-- 	preferences = {
+	-- 		disableSuggestions = true,
+	-- 	},
+	-- },
 })
 lspconfig["jsonls"].setup({
 	capabilities = capabilities,
