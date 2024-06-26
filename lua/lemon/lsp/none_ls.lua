@@ -11,31 +11,12 @@ null_ls.setup({
     -- require("none-ls.diagnostics.flake8"),
 
     -- C/C++
-    formatting.clang_format.with({
-      filetypes = { "c", "cpp", "cs" },
-    }), -- formatting
+    -- formatting.clang_format.with({
+    -- 	filetypes = { "c", "cpp", "cs" },
+    -- }), -- formatting
 
     -- Web Dev Formatting
     formatting.prettierd,
-
-    -- javascript
-    require("none-ls.diagnostics.eslint").with({
-      config = {
-        settings = {
-          format = false,
-        },
-      },
-      diagnostic_config = {
-        update_in_insert = true,
-      },
-    }),
-    require("none-ls.code_actions.eslint").with({
-      config = {
-        settings = {
-          format = false,
-        },
-      },
-    }),
 
     -- lua formatting
     formatting.stylua,
