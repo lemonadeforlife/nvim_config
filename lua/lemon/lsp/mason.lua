@@ -20,8 +20,7 @@ mason_auto.setup({
 		"html",
 		"cssls",
 		"tsserver",
-		"eslint",
-		"prettier",
+		"prettierd",
 		-- json
 		"jsonls",
 	},
