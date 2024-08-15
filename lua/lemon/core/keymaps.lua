@@ -125,7 +125,7 @@ wk.register({
 wk.register({
 	l = {
 		name = "LSP",
-		t = { "<cmd>TroubleToggle<cr>", "List of troubles from LSP" },
+		-- t = { "<cmd>Trouble diagnostics toggle<cr>", "List of troubles from LSP" },
 		m = { "<cmd>Mason<cr>", "Mason Dashboard" },
 		n = { "<cmd>NullLsInfo<cr>", "Null Info Dashboard" },
 		i = { "<cmd>LspInfo<cr>", "Lsp Info Dashboard" },
@@ -135,6 +135,13 @@ wk.register({
 		s = { "<cmd>noa w<cr>", "Save file without any formatting" },
 	},
 }, { prefix = "<leader>" })
+wk.register({
+	g = {
+		d = { "LSP Definition" },
+		i = { "LSP Implementations" },
+		r = { "LSP Referrence" },
+	},
+})
 
 -- related to searching, git, finding files, telescope etc
 wk.register({
