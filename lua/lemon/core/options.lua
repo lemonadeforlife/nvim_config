@@ -2,6 +2,10 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
+vim.api.nvim_create_autocmd("VimLeave", {
+	pattern = "*",
+	command = "set guicursor=a:ver25-blinkon1",
+})
 
 -- python provider
 vim.g.python3_host_prog = "/home/nahian/.pyenv/versions/.nvim-venv/bin/python"
