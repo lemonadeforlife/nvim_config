@@ -40,12 +40,6 @@ return {
 						end,
 						key = "d",
 					},
-					{
-						desc = "󰅜 Exit",
-						group = "Number",
-						action = ":q",
-						key = "q",
-					},
 				},
 			},
 		})
