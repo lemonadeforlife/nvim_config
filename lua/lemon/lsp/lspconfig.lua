@@ -53,6 +53,7 @@ lspconfig["cssls"].setup({
 		-- provideFormatter = true,
 	},
 })
+lspconfig["emmet_language_server"].setup({})
 lspconfig["pyright"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
