@@ -58,3 +58,44 @@ ls.add_snippets("html", {
 		)
 	),
 })
+
+ls.add_snippets("c", {
+	s(
+		"#in",
+		fmt(
+			[[
+#include<stdio.h>
+
+int main()
+{{
+  {}
+  return 0;
+}}
+  ]],
+			{
+				i(0),
+			}
+		)
+	),
+})
+
+ls.add_snippets("c", {
+	s(
+		"#inm",
+		fmt(
+			[[
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{{
+  {}
+  return 0;
+}}
+  ]],
+			{
+				i(0),
+			}
+		)
+	),
+})
