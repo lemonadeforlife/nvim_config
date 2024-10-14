@@ -29,5 +29,5 @@ mason_auto.setup({
 	auto_update = true,
 })
 mason_lspconfig.setup({
-	automatic_installation = true,
+  automatic_installation = true,
 })

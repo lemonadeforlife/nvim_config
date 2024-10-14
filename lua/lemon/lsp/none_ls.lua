@@ -11,9 +11,9 @@ null_ls.setup({
 		-- require("none-ls.diagnostics.flake8"),
 
 		-- C/C++
-		-- formatting.clang_format.with({
-		-- 	filetypes = { "c", "cpp", "cs" },
-		-- }),
+		formatting.clang_format.with({
+			filetypes = { "c", "cpp", "cs" },
+		}), -- formatting
 
 		-- Web Dev Formatting
 		formatting.prettierd,
