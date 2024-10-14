@@ -2,6 +2,21 @@ local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
 
+local function toggle_formatoptions_cro()
+	local current = vim.api.nvim_get_option_value("formatoptions", { scope = "local" })
+	if string.find(current, "c") and string.find(current, "r") and string.find(current, "o") then
+		vim.opt.formatoptions:remove("c")
+		vim.opt.formatoptions:remove("r")
+		vim.opt.formatoptions:remove("o")
+		print("Disabled next line auto-comment")
+	else
+		vim.opt.formatoptions:append("c")
+		vim.opt.formatoptions:append("r")
+		vim.opt.formatoptions:append("o")
+		print("Enabled next line auto-comment")
+	end
+end
+
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 local keymaps = vim.keymap.set
@@ -39,9 +54,13 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
--- keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", opts) -- Toggle terminal in float window
-keymap("n", "<leader>t", ":ToggleTerm<CR>", opts) -- Toggle terminal
-
+if vim.o.filetype == "c" then
+	print("Worked!!!")
+	keymap("n", "<leader>t", ":ToggleTerm direction=vertical<CR>", opts) -- Toggle terminal
+else
+	print("Failed!!!")
+	keymap("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts) -- Toggle terminal
+end
 -- NvimTreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
@@ -134,6 +153,7 @@ wk.register({
 		c = { "<cmd>CmpStatus<cr>", "Completion Status" },
 		p = { "<cmd>Lazy<cr>", "Opens up the plugin manager" },
 		s = { "<cmd>noa w<cr>", "Save file without any formatting" },
+		f = { toggle_formatoptions_cro, "Toggle next line auto comment" },
 	},
 }, { prefix = "<leader>" })
 wk.register({
