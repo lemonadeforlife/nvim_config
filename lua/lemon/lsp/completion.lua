@@ -13,7 +13,7 @@ cmp.setup({
 			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
-				luasnip = "[LSP]",
+				luasnip = "[Snp]",
 				path = "[PATH]",
 			},
 		}),

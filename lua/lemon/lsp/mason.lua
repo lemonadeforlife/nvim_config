@@ -21,7 +21,7 @@ mason_auto.setup({
 		"html",
 		"cssls",
 		"emmet_language_server",
-		"tsserver",
+		"ts_ls",
 		"prettierd",
 		-- json
 		"jsonls",
