@@ -23,15 +23,6 @@ local keymaps = vim.keymap.set
 local wk = require("which-key")
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
--- ######################
--- ###### Modes ########
--- ####################
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 -- #######################
 -- ######## Normal ######
@@ -96,31 +87,28 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- ======================
 
 -- No highlight
-wk.register({
-	["<leader>h"] = { "<cmd>noh<CR>", "Remove highlight" },
+wk.add({
+	{ "<leader>h", "<cmd>noh<CR>", desc = "Remove highlight" },
 })
 
 -- Quit NeoVim
-wk.register({
-	x = {
-		name = "Save / Quite",
-		a = { "<cmd>qa<cr>", "Quit all open files without saving" },
-		s = { "<cmd>w<cr>", "Save" },
-		x = { "<cmd>x<cr>", "Save & Exit" },
-		b = { "<cmd>bdelete!<cr>", "Close Buffer Window" },
-		q = { "<cmd>q!<cr>", "Force to quite without saving any changes" },
-	},
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>x", group = "Save/Quit" },
+	{ "<leader>xa", "<cmd>qa<cr>", desc = "Quit all open files without saving" },
+	{ "<leader>xs", "<cmd>w<cr>", desc = "Save" },
+	{ "<leader>xx", "<cmd>x<cr>", desc = "Save & Exit" },
+	{ "<leader>xb", "<cmd>bdelete!<cr>", desc = "Close Buffer Window" },
+	{ "<leader>xq", "<cmd>q!<cr>", desc = "Force to quite without saving any changes" },
+})
 
 -- bufferline
-wk.register({
-	b = {
-		name = "Buffers",
-		l = { "<cmd>BufferLineCloseRight<cr>", "Close Right Side Buffer" },
-		h = { "<cmd>BufferLineCloseLeft<cr>", "Close Left Side Buffer" },
-		-- f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
-	},
-	["br"] = {
+wk.add({
+	{ "<leader>b", group = "Buffers" },
+	{ "<leader>bl", "<cmd>BufferLineCloseRight<cr>", desc = "Close Right Side Buffer" },
+	{ "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", desc = "Close Left Side Buffer" },
+	-- f = { "<cmd>on<cr>", "Make the current window the only one on the screen" },
+	{
+		"<leader>br",
 		function()
 			if vim.opt.relativenumber == false then
 				vim.cmd([[set relativenumber]])
@@ -128,91 +116,68 @@ wk.register({
 				vim.cmd([[set relativenumber!]])
 			end
 		end,
-		"Toggle Hybrid Number",
-	},
-}, { prefix = "<leader>", noremap = true, silent = true })
-
-wk.register({
-	["<C-p>"] = { "<cmd>BufferLineTogglePin<CR>", "Toggle Pin a Buffer" },
-})
--- Navigate buffers
-wk.register({
-	["<S-l>"] = { "<cmd>bnext<cr>", "Navigate buffer to left" },
-	["<S-h>"] = { "<cmd>bprevious<cr>", "Navigate buffer to right" },
-})
-
--- LSP Related Shortcuts: Trouble, Mason etc
-wk.register({
-	l = {
-		name = "LSP",
-		-- t = { "<cmd>Trouble diagnostics toggle<cr>", "List of troubles from LSP" },
-		m = { "<cmd>Mason<cr>", "Mason Dashboard" },
-		n = { "<cmd>NullLsInfo<cr>", "Null Info Dashboard" },
-		i = { "<cmd>LspInfo<cr>", "Lsp Info Dashboard" },
-		l = { "<cmd>LspLog<cr>", "Lsp Log Dashboard" },
-		c = { "<cmd>CmpStatus<cr>", "Completion Status" },
-		p = { "<cmd>Lazy<cr>", "Opens up the plugin manager" },
-		s = { "<cmd>noa w<cr>", "Save file without any formatting" },
-		f = { toggle_formatoptions_cro, "Toggle next line auto comment" },
-	},
-}, { prefix = "<leader>" })
-wk.register({
-	g = {
-		d = { "LSP Definition" },
-		i = { "LSP Implementations" },
-		r = { "LSP Referrence" },
+		desc = "Toggle Hybrid Number",
 	},
 })
-
--- related to searching, git, finding files, telescope etc
-wk.register({
-	s = {
-		name = "Search",
-		f = { "<cmd>Telescope find_files<cr>", "Search for File for current working workspace" },
-		l = { "<cmd>Telescope live_grep<cr>", "Search for a string in your current working directory" },
-		h = { "<cmd>Telescope help_tags<cr>", "Returns List of relevant help tags for your" },
-		g = { "<cmd>Telescope git_files<cr>", "List Git files respecting .gitignore" },
-	},
+wk.add({
+	{ "<C-p>", "<cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin a Buffer" },
+	-- Navigate buffers
+	{ "<S-l>", "<cmd>bnext<cr>", desc = "Navigate buffer to left" },
+	{ "<S-h>", "<cmd>bprevious<cr>", desc = "Navigate buffer to right" },
+	-- LSP Related Shortcuts: Trouble, Mason etc
+	{ "<leader>l", group = "LSP" },
+	-- t = { "<cmd>Trouble diagnostics toggle<cr>", "List of troubles from LSP" },
+	{ "<leader>lm", "<cmd>Mason<cr>", desc = "Mason Dashboard" },
+	{ "<leader>ln", "<cmd>NullLsInfo<cr>", desc = "Null Info Dashboard" },
+	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info Dashboard" },
+	{ "<leader>ll", "<cmd>LspLog<cr>", desc = "Lsp Log Dashboard" },
+	{ "<leader>lc", "<cmd>CmpStatus<cr>", desc = "Completion Status" },
+	{ "<leader>lp", "<cmd>Lazy<cr>", desc = "Opens up the plugin manager" },
+	{ "<leader>ls", "<cmd>noa w<cr>", desc = "Save file without any formatting" },
+	{ "<leader>lf", toggle_formatoptions_cro, desc = "Toggle next line auto comment" },
+	{ "<leader>gd", desc = "LSP Definition" },
+	{ "<leader>gi", desc = "LSP Implementations" },
+	{ "<leader>gr", desc = "LSP Referrence" },
+	-- related to searching, git, finding files, telescope etc
+	{ "<leader>s", group = "Search" },
+	{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search for File for current working workspace" },
+	{ "<leader>sl", "<cmd>Telescope live_grep<cr>", desc = "Search for a string in your current working directory" },
+	{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Returns List of relevant help tags for your" },
+	{ "<leader>sg", "<cmd>Telescope git_files<cr>", desc = "List Git files respecting .gitignore" },
 	-- Git
-	g = {
-		name = "Git",
-		c = { "<cmd>Telescope git_commits<cr>", "List of Git commits" },
-		p = { ":Gitsigns preview_hunk<cr>", "Previews Git blame on yellow bar" },
-		d = { "<cmd>Gvdiffsplit<cr>", "Preview Git Diff" },
-		l = { "<cmd>GitSigns toggle_linehl<cr>", "Highlight Line" },
+	{ "<leader>g", group = "Git" },
+	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "List of Git commits" },
+	{ "<leader>gp", ":Gitsigns preview_hunk<cr>", desc = "Previews Git blame on yellow bar" },
+	{ "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "Preview Git Diff" },
+	{ "<leader>gl", "<cmd>GitSigns toggle_linehl<cr>", desc = "Highlight Line" },
+	{
+		"<C-l>",
+		"<cmd>Gitsigns toggle_linehl<cr>",
+		desc = "Highlight Line in Insert Mode",
+		mode = "i",
 	},
-}, { prefix = "<leader>" })
-wk.register({
-	["<C-l>"] = { "<cmd>Gitsigns toggle_linehl<cr>", "Highlight Line in Insert Mode" },
-}, { mode = "i" })
--- Noice
-wk.register({
-	n = {
-		name = "Noice",
-		h = { "<cmd>Noice history<cr>", "Shows the message history" },
-		l = { "<cmd>Noice last<cr>", "shows the last message in a popup" },
-		d = { "<cmd>Noice dismiss<cr>", "Dismiss all visible message" },
-		e = { "<cmd>Noice errors<cr>", "shows the error messages in a split. Last errors on top" },
-		t = { "<cmd>Noice telescope<cr>", "opens message history in Telescope" },
-		s = { "<cmd>Noice stats<cr>", "shows debugging stats" },
+	-- Noice
+	{ "<leader>n", group = "Noice" },
+	{ "<leader>nh", "<cmd>Noice history<cr>", desc = "Shows the message history" },
+	{ "<leader>nl", "<cmd>Noice last<cr>", desc = "shows the last message in a popup" },
+	{ "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Dismiss all visible message" },
+	{
+		"<leader>ne",
+		"<cmd>Noice errors<cr>",
+		desc = "shows the error messages in a split. Last errors on top",
 	},
-}, { prefix = "<leader>" })
-
--- Sessions / Suda
-wk.register({
-	S = {
-		name = "Sessions & Suda",
-		r = { "<cmd>SessionRestore<cr>", "Restore the current session for cwd" },
-		s = { "<cmd>SessionSave<cr>", "Save the current session for cwd" },
-		w = { "<cmd>SudaWrite<cr>", "Write the readonly file" },
-		R = { "<cmd>SudaRead<cr>", "Open unreadable file" },
-	},
-}, { prefix = "<leader>" })
--- Better Tmux Window & Buffer navigation
-wk.register({
-	["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>" },
-	["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>" },
-	["<C-k>"] = { "<cmd>TmuxNavigateUp<cr>" },
-	["<C-l>"] = { "<cmd>TmuxNavigateRight<cr>" },
-	["<C-\\>"] = { "<cmd>TmuxNavigatePrevious<cr>" },
+	{ "<leader>nt", "<cmd>Noice telescope<cr>", desc = "opens message history in Telescope" },
+	{ "<leader>ns", "<cmd>Noice stats<cr>", desc = "shows debugging stats" },
+	-- Sessions / Suda
+	{ "<leader>S", group = "Sessions & Suda" },
+	{ "<leader>Sr", "<cmd>SessionRestore<cr>", desc = "Restore the current session for cwd" },
+	{ "<leader>Ss", "<cmd>SessionSave<cr>", desc = "Save the current session for cwd" },
+	{ "<leader>Sw", "<cmd>SudaWrite<cr>", desc = "Write the readonly file" },
+	{ "<leader>SR", "<cmd>SudaRead<cr>", desc = "Open unreadable file" },
+	-- Better Tmux Window & Buffer navigation
+	{ "<C-h>", "<cmd>TmuxNavigateLeft<cr>" },
+	{ "<C-j>", "<cmd>TmuxNavigateDown<cr>" },
+	{ "<C-k>", "<cmd>TmuxNavigateUp<cr>" },
+	{ "<C-l>", "<cmd>TmuxNavigateRight<cr>" },
+	{ "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
 })
