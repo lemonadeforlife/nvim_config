@@ -61,18 +61,28 @@ ls.add_snippets("html", {
 
 ls.add_snippets("c", {
 	s(
-		"#in",
+		"inc",
 		fmt(
 			[[
 #include<stdio.h>
 
 int main()
 {{
+  {} {};
   {}
+  printf("{}");
   return 0;
 }}
   ]],
 			{
+				c(1, {
+					t("int"),
+					t("double"),
+					t("float"),
+					t("char"),
+				}),
+				i(2),
+				i(3, "// Write your code here"),
 				i(0),
 			}
 		)
@@ -81,7 +91,7 @@ int main()
 
 ls.add_snippets("c", {
 	s(
-		"#inm",
+		"inm",
 		fmt(
 			[[
 #include<stdio.h>
@@ -89,11 +99,102 @@ ls.add_snippets("c", {
 
 int main()
 {{
+  {} {};
   {}
+  printf("{}");
   return 0;
 }}
   ]],
 			{
+				c(1, {
+					t("int"),
+					t("double"),
+					t("float"),
+					t("char"),
+				}),
+				i(2),
+				i(3, "// Write your code here"),
+				i(0),
+			}
+		)
+	),
+})
+
+ls.add_snippets("c", {
+	s(
+		"ini",
+		fmt(
+			[[
+#include<stdio.h>
+
+int main()
+{{
+  {} {};
+  scanf("%{}", &{});
+  if ({}) {{
+    {}
+  }}
+  else {{
+    {}
+  }}
+  return 0;
+}}
+  ]],
+			{
+				c(1, {
+					t("int"),
+					t("double"),
+					t("float"),
+					t("char"),
+				}),
+				i(2),
+				i(3),
+				i(4),
+				i(5),
+				i(6),
+				i(0),
+			}
+		)
+	),
+})
+
+ls.add_snippets("c", {
+	s(
+		"ine",
+		fmt(
+			[[
+#include<stdio.h>
+
+int main()
+{{
+  {} {};
+  scanf("%{}", &{});
+  if ({}) {{
+    {}
+  }}
+  else if ({}) {{
+    {}
+  }}
+  else {{
+    {}
+  }}
+  return 0;
+}}
+  ]],
+			{
+				c(1, {
+					t("int"),
+					t("double"),
+					t("float"),
+					t("char"),
+				}),
+				i(2),
+				i(3),
+				i(4),
+				i(5),
+				i(6),
+				i(7),
+				i(8),
 				i(0),
 			}
 		)
