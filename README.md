@@ -39,7 +39,7 @@ sudo apt install ripgrep fd-find
 
 For Windows
 ```pwsh
-choco install fd ripgrep
+choco install fd ripgrep make
 ```
 
 # Installation
