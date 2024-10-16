@@ -31,6 +31,16 @@ It's important for mason
 - For Linux: https://github.com/nvm-sh/nvm
 - For Windows: https://nodejs.org/en/download/package-manager
 
+## [fd](https://github.com/sharkdp/fd) & [ripgreap](https://github.com/BurntSushi/ripgrep)
+For Linux:
+```bash
+sudo apt install ripgrep fd-find
+```
+
+For Windows
+```pwsh
+choco install fd ripgrep
+```
 
 # Installation
 
