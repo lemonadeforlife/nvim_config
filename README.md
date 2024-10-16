@@ -6,10 +6,12 @@
 <a href="https://neovim.io/doc/user/" target="_blank">Read the Doc! 🔫</a>
 </h1>
 
-### Table of Content
-
+# Table of Content
+- [Prerequisite](#prerequisite) 
 - [Installation](#installation)
   - [NeoVim](#neovim)
+    - [Linux](#linux)
+    - [Windows](#windows)
   - [Configuration](#configuration)
 - [Update](#update)
 - [Feature](#feature)
@@ -17,10 +19,23 @@
 - [Resources](#resources)
 - [Uninstall](#uninstall)
 
-## Installation
+# Prerequisite
+## NerdFont
+- Direct Download:
+  - [JetBrainsMono](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip)
+  - [DejaVuSansMono](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/DejaVuSansMono.zip)
+  - [FiraMono](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip)
+  - [FiraCode](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip)
+## NodeJS
+It's important for mason
+- For Linux: https://github.com/nvm-sh/nvm
+- For Windows: https://nodejs.org/en/download/package-manager
 
-#### Neovim
 
+# Installation
+
+## <span style="display:block;text-align: center;">Neovim</span>
+## Linux
 1. Download neovim release file to `Download` directory
 
 ```bash
@@ -50,15 +65,39 @@ sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}
 > Finally since we don't want to screw our muscle memory & using improved version of vim. We are using Neovim as vim alternative by using `update-alternatives` command.
 > <br>
 
-#### Configuration
+## Windows
+1. For installing neovim on Windows is actually super simple:
+```pwsh
+choco install neovim
+```
+2. Setting alias as `vi` in powershell:
+```pwsh
+# To check if profile.ps1 exixst or not if not create with linux touch alias
+Test-Path $PROFILE
 
-```shell
+# open the profile.ps1 file with notepad
+notepad $PROFILE
+
+# now set alias
+Set-Alias vi nvim
+
+# And now restart powershell that's it
+```
+
+## <span style="display:block;text-align: center;">Configuration</span>
+
+```bash
 git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 ```
 
-## Update
-
+## <span style="display:block;text-align: center;">Update</span>
+### Linux
 For Updating and Maintaining neovim check this [repository](https://github.com/lemonadeforlife/update/)
+
+### Windows
+```pwsh
+choco upgrade neovim
+```
 
 ## Feature
 
