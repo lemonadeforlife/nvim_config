@@ -189,8 +189,4 @@ wk.add({
 	{ "<C-k>", "<cmd>TmuxNavigateUp<cr>" },
 	{ "<C-l>", "<cmd>TmuxNavigateRight<cr>" },
 	{ "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
-	-- Debugger
-	{ "<leader>d", group = "Debugger" },
-	{ "<leader>db", "<cmd>DapToggleBreakpoint<cr>", desc = "Add breakpoint at line" },
-	{ "<leader>dr", "<cmd>DapContinue<cr>", desc = "Start or Continue debugger" },
 })
