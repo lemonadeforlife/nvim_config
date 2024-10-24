@@ -23,6 +23,7 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "junegunn/fzf", build = buildCmd("install") },
 		"junegunn/fzf.vim",
+		"nvim-telescope/telescope-file-browser.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -49,5 +50,6 @@ return {
 		})
 		telescope.load_extension("fzf")
 		telescope.load_extension("noice")
+		telescope.load_extension("file_browser")
 	end,
 }
