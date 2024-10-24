@@ -140,8 +140,17 @@ wk.add({
 	{ "<leader>gr", desc = "LSP Referrence" },
 	-- related to searching, git, finding files, telescope etc
 	{ "<leader>s", group = "Search" },
+	{
+		"<leader>sb",
+		"<cmd> Telescope file_browser<cr>",
+		desc = "creation, deletion, renaming, and moving of files and folders",
+	},
 	{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search for File for current working workspace" },
-	{ "<leader>sl", "<cmd>Telescope live_grep<cr>", desc = "Search for a string in your current working directory" },
+	{
+		"<leader>sl",
+		"<cmd>Telescope live_grep<cr>",
+		desc = "Search for a string in your current working directory",
+	},
 	{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Returns List of relevant help tags for your" },
 	{ "<leader>sg", "<cmd>Telescope git_files<cr>", desc = "List Git files respecting .gitignore" },
 	-- Git
@@ -180,4 +189,8 @@ wk.add({
 	{ "<C-k>", "<cmd>TmuxNavigateUp<cr>" },
 	{ "<C-l>", "<cmd>TmuxNavigateRight<cr>" },
 	{ "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
+	-- Debugger
+	{ "<leader>d", group = "Debugger" },
+	{ "<leader>db", "<cmd>DapToggleBreakpoint<cr>", desc = "Add breakpoint at line" },
+	{ "<leader>dr", "<cmd>DapContinue<cr>", desc = "Start or Continue debugger" },
 })
