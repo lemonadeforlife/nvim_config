@@ -1,4 +1,9 @@
-require("neodev").setup()
+require("neodev").setup({
+	library = {
+		plugins = { "nvim-dap-ui" },
+		type = true,
+	},
+})
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local os_name = vim.loop.os_uname().sysname
