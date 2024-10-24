@@ -70,7 +70,6 @@ int main()
 {{
   {} {};
   {}
-  printf("{}");
   return 0;
 }}
   ]],
@@ -82,8 +81,7 @@ int main()
 					t("char"),
 				}),
 				i(2),
-				i(3, "// Write your code here"),
-				i(0),
+				i(0, "// Write your code here"),
 			}
 		)
 	),
