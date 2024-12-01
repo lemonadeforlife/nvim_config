@@ -45,13 +45,8 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-if vim.o.filetype == "c" then
-	print("Worked!!!")
-	keymap("n", "<leader>t", ":ToggleTerm direction=vertical<CR>", opts) -- Toggle terminal
-else
-	print("Failed!!!")
-	keymap("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts) -- Toggle terminal
-end
+keymap("n", "<leader>T", ":ToggleTerm direction=vertical<CR>", opts) -- Toggle terminal
+keymap("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts) -- Toggle terminal
 -- NvimTreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
