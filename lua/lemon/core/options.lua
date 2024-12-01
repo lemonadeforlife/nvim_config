@@ -1,3 +1,17 @@
+-- Useful Environment Variable
+Home = os.getenv("HOME")
+
+-- Useful Function
+function Read_file(path)
+	local open = io.open
+	local file = open(path, "rb") -- r read mode and b binary mode
+	if not file then
+		return nil
+	end
+	local content = file:read("*a") -- *a or *all reads the whole file
+	file:close()
+	return content
+end
 -- settings for NvimTree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -8,7 +22,7 @@ vim.api.nvim_create_autocmd("VimLeave", {
 })
 
 -- python provider
-vim.g.python3_host_prog = "/home/nahian/.pyenv/versions/.nvim-venv/bin/python"
+vim.g.python3_host_prog = Home .. "/.pyenv/versions/.nvim-venv/bin/python"
 
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.conceallevel = 0 -- for `` visible in markdown
