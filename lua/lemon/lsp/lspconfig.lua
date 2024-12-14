@@ -6,7 +6,6 @@ require("neodev").setup({
 })
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local os_name = vim.loop.os_uname().sysname
 
 -- attaching keymaps for lsp's
 local on_attach = function(_, _)
