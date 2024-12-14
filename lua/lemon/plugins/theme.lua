@@ -1,14 +1,17 @@
 return {
-	"folke/tokyonight.nvim",
+	-- "folke/tokyonight.nvim",
+	-- config = function()
+	-- 	require("tokyonight").setup({
+	-- 		style = "moon",
+	-- 		transparent = false,
+	-- 		dim_inactive = true,
+	-- 		lualine_bold = true,
+	-- 	})
+	-- end,
+	"dracula/vim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("tokyonight").setup({
-			style = "moon",
-			transparent = false,
-			dim_inactive = true,
-			lualine_bold = true,
-		})
-		vim.cmd([[colorscheme tokyonight]])
+		vim.cmd([[colorscheme dracula]])
 	end,
 }
