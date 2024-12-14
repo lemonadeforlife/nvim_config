@@ -7,15 +7,24 @@ local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 require("luasnip.loaders.from_vscode").lazy_load()
 cmp.setup({
+	-- view = {
+	-- 	docs = {
+	-- 		auto_open = false,
+	-- 	},
+	-- },
 	formatting = {
 		format = lspkind.cmp_format({
-			mode = "symbol_text",
+			-- mode = "symbol_text",
 			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
 				luasnip = "[Snp]",
 				path = "[PATH]",
 			},
+			-- maxwidth = function()
+			-- 	return math.floor(0.45 * vim.o.columns)
+			-- end,
+			-- ellipsis_char = "...",
 		}),
 	},
 	completion = {
