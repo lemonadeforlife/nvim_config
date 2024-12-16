@@ -49,7 +49,7 @@ choco install fd ripgrep make
 1. Download neovim release file to `Download` directory
 
 ```bash
-curl --output-dir "~/Downloads" -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+curl --output-dir ~/Downloads -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 ```
 
 2. Extract file to `/opt` for globally access neovim
