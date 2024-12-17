@@ -23,7 +23,7 @@ return {
 						key = "f",
 					},
 					{
-						desc = " Code",
+						desc = "󱃸 Code",
 						group = "DiagnosticHint",
 						action = function()
 							vim.cmd([[cd ~/Code/]])
@@ -32,13 +32,21 @@ return {
 						key = "c",
 					},
 					{
-						desc = " dotfiles",
+						desc = " Setting",
 						action = function()
 							vim.cmd([[cd ~/.config/nvim/]])
 							vim.cmd([[NvimTreeOpen ~/.config/nvim]])
 							vim.cmd([[Telescope find_files cwd=~/.config/nvim]])
 						end,
-						key = "d",
+						key = "s",
+					},
+					{
+						desc = "󰈆 Exit",
+						group = "ErrorMsg",
+						action = function()
+							vim.cmd([[qa!]])
+						end,
+						key = "q",
 					},
 				},
 			},
