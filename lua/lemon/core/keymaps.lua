@@ -91,9 +91,9 @@ wk.add({
 	{ "<leader>x", group = "Save/Quit" },
 	{ "<leader>xa", "<cmd>qa<cr>", desc = "Quit all open files without saving" },
 	{ "<leader>xs", "<cmd>w<cr>", desc = "Save" },
-	{ "<leader>xx", "<cmd>x<cr>", desc = "Save & Exit" },
+	{ "<leader>xx", "<cmd>xa<cr>", desc = "Save & Exit" },
 	{ "<leader>xb", "<cmd>bdelete!<cr>", desc = "Close Buffer Window" },
-	{ "<leader>xq", "<cmd>q!<cr>", desc = "Force to quite without saving any changes" },
+	{ "<leader>xq", "<cmd>qa!<cr>", desc = "Force to quite without saving any changes" },
 })
 
 -- bufferline
