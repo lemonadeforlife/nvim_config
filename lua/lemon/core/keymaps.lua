@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 local function toggle_formatoptions_cro()
@@ -24,10 +23,7 @@ local wk = require("which-key")
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 
--- #######################
 -- ######## Normal ######
--- #####################
-
 -- Window Split
 keymap("n", "<leader>v", ":vsplit<cr>", opts)
 -- Resize with arrows
@@ -35,10 +31,8 @@ keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
 -- Bufferline
 keymaps({ "n", "i", "v" }, "<C-p>", "<cmd>BufferLineTogglePin<CR>", opts)
-
 -- Terminal/ToggleTerm --
 keymap("t", "jk", "<C-\\><C-N>", term_opts)
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
@@ -49,18 +43,14 @@ keymap("n", "<leader>T", ":ToggleTerm direction=vertical<CR>", opts) -- Toggle t
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts) -- Toggle terminal
 -- NvimTreeToggle
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- Paste yanked register only
+keymap("n", "<leader>p", '"0p', opts)
 
--- #######################
 -- ######## Insert ######
--- #####################
-
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
--- #######################
 -- ######## Visual ######
--- #####################
-
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
