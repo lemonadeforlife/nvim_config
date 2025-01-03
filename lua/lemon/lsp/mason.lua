@@ -1,7 +1,6 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local mason_auto = require("mason-tool-installer")
-local os_name = vim.loop.os_uname().sysname
 local package_list = {
 	"lua_ls",
 	"stylua",
