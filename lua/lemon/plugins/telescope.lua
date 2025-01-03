@@ -1,5 +1,4 @@
 local function buildCmd(cmd)
-	local os_name = vim.loop.os_uname().sysname
 	local compiler
 	local install
 	if os_name == "Linux" then
