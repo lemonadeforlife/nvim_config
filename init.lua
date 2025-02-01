@@ -7,4 +7,5 @@ else
 	require("lazy").setup({ import = "lemon.plugins" })
 	require("lemon.lsp")
 	require("lemon.core.keymaps")
+	require("lemon.core.config")
 end
