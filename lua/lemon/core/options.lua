@@ -1,5 +1,5 @@
 -- Useful Environment Variable
-os_name = vim.loop.os_uname().sysname
+os_name = vim.uv.os_uname().sysname
 if os_name == "Linux" then
 	Home = os.getenv("HOME")
 end
