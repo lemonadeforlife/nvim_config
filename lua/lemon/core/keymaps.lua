@@ -16,6 +16,31 @@ local function toggle_formatoptions_cro()
 	end
 end
 
+local function run() -- execute code
+	local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
+	local filetype = vim.bo.filetype
+	if filetype == "cpp" then -- cpp/C++
+		if os_name == "Windows_NT" then
+			vim.cmd('TermExec cmd="g++ -std=c++23 ' .. filename .. ' && .\\a.exe" direction=vertical')
+		else
+			vim.cmd('TermExec cmd="g++ -std=c++23 ' .. filename .. ' && ./a.out" direction=vertical')
+		end
+	elseif filetype == "c" then -- C programming language
+		if os_name == "Windows_NT" then
+			vim.cmd('TermExec cmd="gcc ' .. filename .. ' && .\\a.exe" direction=vertical')
+		else
+			vim.cmd('TermExec cmd="gcc ' .. filename .. ' && ./a.out" direction=vertical')
+		end
+	elseif filetype == "python" then -- Python
+		if os_name == "Windows_NT" then
+			vim.cmd('TermExec cmd="python ' .. filename .. '" direction=vertical')
+		else
+			vim.cmd('TermExec cmd="python3 ' .. filename .. '" direction=vertical')
+		end
+	else
+		vim.notify("There is no such config for " .. filetype, vim.log.levels.INFO)
+	end
+end
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 local keymaps = vim.keymap.set
@@ -113,7 +138,7 @@ wk.add({
 	-- Navigate buffers
 	{ "<S-l>", "<cmd>bnext<cr>", desc = "Navigate buffer to left" },
 	{ "<S-h>", "<cmd>bprevious<cr>", desc = "Navigate buffer to right" },
-	-- LSP Related Shortcuts: Trouble, Mason etc
+	-- LSP/Code Related Shortcuts: Trouble, Mason etc
 	{ "<leader>l", group = "LSP", icon = "󰒋" },
 	-- t = { "<cmd>Trouble diagnostics toggle<cr>", "List of troubles from LSP" },
 	{ "<leader>lm", "<cmd>Mason<cr>", desc = "Mason Dashboard" },
@@ -127,6 +152,8 @@ wk.add({
 	{ "<leader>gd", desc = "LSP Definition" },
 	{ "<leader>gi", desc = "LSP Implementations" },
 	{ "<leader>gr", desc = "LSP Referrence" },
+	{ "<leader>rn", desc = "Rename Variable" },
+	{ "<leader>rr", run, desc = "Compile & Run cpp file" },
 	-- related to searching, git, finding files, telescope etc
 	{ "<leader>s", group = "Search/Browse" },
 	{
