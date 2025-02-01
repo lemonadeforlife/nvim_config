@@ -24,8 +24,6 @@ local wk = require("which-key")
 keymap("", "<Space>", "<Nop>", opts)
 
 -- ######## Normal ######
--- Window Split
-keymap("n", "<leader>v", ":vsplit<cr>", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -39,17 +37,12 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-keymap("n", "<leader>T", ":ToggleTerm direction=vertical<CR>", opts) -- Toggle terminal
-keymap("n", "<leader>t", ":ToggleTerm direction=horizontal<CR>", opts) -- Toggle terminal
--- NvimTreeToggle
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
--- Paste yanked register only
-keymap("n", "<leader>p", '"0p', opts)
 
 -- ######## Insert ######
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-
+-- delete line without disrupting indent
+keymap("i", "<C-u>", "<End><C-u>", opts)
 -- ######## Visual ######
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -70,12 +63,23 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- ======================
 -- ##### which-key ######
 -- ======================
-
--- No highlight
+-- NvimTreeToggle
 wk.add({
-	{ "<leader>h", "<cmd>noh<CR>", desc = "Remove highlight" },
+	{ "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "File Explorer", icon = "󰙅" },
 })
 
+wk.add({
+	{ "<leader>p", '<cmd>"0p<cr>', desc = "Paste yanked only", icon = "󰆒" }, -- ignores deleted or changed from register when pasting
+})
+-- vertical split
+wk.add({ { "<leader>v", ":vsplit<cr>", desc = "vertical split" } })
+-- No highlight
+wk.add({
+	{ "<leader>h", "<cmd>noh<CR>", desc = "Remove highlight", icon = "󰹐" },
+})
+
+wk.add({ { "<leader>T", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Terminal (Vertical)", icon = " " } })
+wk.add({ { "<leader>t", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Terminal (Horizontal)", icon = " " } })
 -- Quit NeoVim
 wk.add({
 	{ "<leader>x", group = "Save/Quit" },
@@ -110,7 +114,7 @@ wk.add({
 	{ "<S-l>", "<cmd>bnext<cr>", desc = "Navigate buffer to left" },
 	{ "<S-h>", "<cmd>bprevious<cr>", desc = "Navigate buffer to right" },
 	-- LSP Related Shortcuts: Trouble, Mason etc
-	{ "<leader>l", group = "LSP" },
+	{ "<leader>l", group = "LSP", icon = "󰒋" },
 	-- t = { "<cmd>Trouble diagnostics toggle<cr>", "List of troubles from LSP" },
 	{ "<leader>lm", "<cmd>Mason<cr>", desc = "Mason Dashboard" },
 	{ "<leader>ln", "<cmd>NullLsInfo<cr>", desc = "Null Info Dashboard" },
@@ -124,20 +128,34 @@ wk.add({
 	{ "<leader>gi", desc = "LSP Implementations" },
 	{ "<leader>gr", desc = "LSP Referrence" },
 	-- related to searching, git, finding files, telescope etc
-	{ "<leader>s", group = "Search" },
+	{ "<leader>s", group = "Search/Browse" },
 	{
 		"<leader>sb",
-		"<cmd> Telescope file_browser<cr>",
-		desc = "creation, deletion, renaming, and moving of files and folders",
+		"<cmd> Telescope buffers<cr>",
+		desc = "Browse Buffers",
 	},
-	{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search for File for current working workspace" },
+	{
+		"<leader>se",
+		"<cmd> Telescope file_browser<cr>",
+		desc = "Create & browse files",
+	},
+	{
+		"<leader>sf",
+		"<cmd>Telescope find_files<cr>",
+		desc = "Search for File for current working workspace",
+	},
 	{
 		"<leader>sl",
 		"<cmd>Telescope live_grep<cr>",
 		desc = "Search for a string in your current working directory",
 	},
-	{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Returns List of relevant help tags for your" },
+	{
+		"<leader>sh",
+		"<cmd>Telescope help_tags<cr>",
+		desc = "Returns List of relevant help tags for your",
+	},
 	{ "<leader>sg", "<cmd>Telescope git_files<cr>", desc = "List Git files respecting .gitignore" },
+	{ "<leader>ss", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in current buffer" },
 	-- Git
 	{ "<leader>g", group = "Git" },
 	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "List of Git commits" },
