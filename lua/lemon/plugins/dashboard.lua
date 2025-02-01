@@ -27,7 +27,8 @@ return {
 						group = "DiagnosticHint",
 						action = function()
 							vim.cmd([[cd ~/Code/]])
-							vim.cmd([[NvimTreeOpen ~/Code/]])
+							-- vim.cmd([[NvimTreeOpen ~/Code/]])
+							vim.cmd([[Telescope file_browser cwd=~/Code/]])
 						end,
 						key = "c",
 					},
@@ -35,7 +36,7 @@ return {
 						desc = " Setting",
 						action = function()
 							vim.cmd([[cd ~/.config/nvim/]])
-							vim.cmd([[NvimTreeOpen ~/.config/nvim]])
+							-- vim.cmd([[NvimTreeOpen ~/.config/nvim]])
 							vim.cmd([[Telescope find_files cwd=~/.config/nvim]])
 						end,
 						key = "s",
