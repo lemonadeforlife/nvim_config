@@ -7,7 +7,8 @@
 </h1>
 
 # Table of Content
-- [Prerequisite](#prerequisite) 
+
+- [Prerequisite](#prerequisite)
 - [Installation](#installation)
   - [NeoVim](#neovim)
     - [Linux](#linux)
@@ -20,24 +21,32 @@
 - [Uninstall](#uninstall)
 
 # Prerequisite
+
 ## NerdFont
+
 - Direct Download:
   - [JetBrainsMono](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip)
   - [DejaVuSansMono](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/DejaVuSansMono.zip)
   - [FiraMono](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip)
   - [FiraCode](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip)
+
 ## NodeJS
+
 It's important for mason
+
 - For Linux: https://github.com/nvm-sh/nvm
 - For Windows: https://nodejs.org/en/download/package-manager
 
 ## [fd](https://github.com/sharkdp/fd) & [ripgreap](https://github.com/BurntSushi/ripgrep)
+
 For Linux:
+
 ```bash
 sudo apt install ripgrep fd-find
 ```
 
 For Windows
+
 ```pwsh
 choco install fd ripgrep make
 ```
@@ -45,24 +54,26 @@ choco install fd ripgrep make
 # Installation
 
 ## <span style="display:block;text-align: center;">Neovim</span>
+
 ## Linux
+
 1. Download neovim release file to `Download` directory
 
 ```bash
-curl --output-dir ~/Downloads -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+curl --output-dir ~/Downloads -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 ```
 
 2. Extract file to `/opt` for globally access neovim
 
 ```bash
-tar -C /opt -xzf ~/Downloads/nvim-linux64.tar.gz
+tar -C /opt -xzf ~/Downloads/nvim-linux-x86_64.tar.gz
 ```
 
 3. Adding neovim to editor & replacing vim with neovim
 
 ```bash
-export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
-sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux64/bin/nvim 01
+export CUSTOM_NVIM_PATH=/opt/nvim-linux-x86_64/bin/nvim
+sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux-x86_64/bin/nvim 01
 sudo update-alternatives --install /usr/bin/ex ex "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vi vi "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
@@ -76,11 +87,15 @@ sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}
 > <br>
 
 ## Windows
+
 1. For installing neovim on Windows is actually super simple:
+
 ```pwsh
 choco install neovim
 ```
+
 2. Setting alias as `vi` in powershell:
+
 ```pwsh
 # To check if profile.ps1 exixst or not if not create with linux touch alias
 Test-Path $PROFILE
@@ -101,10 +116,13 @@ git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
 ```
 
 ## <span style="display:block;text-align: center;">Update</span>
+
 ### Linux
+
 For Updating and Maintaining neovim check this [repository](https://github.com/lemonadeforlife/update/)
 
 ### Windows
+
 ```pwsh
 choco upgrade neovim
 ```
@@ -191,22 +209,26 @@ These are the core plugin that are essential and bring functionality and reason 
   Author of telescope plugin & one of the core developer of neovim. Uploads fantastics video about neovim
 
 ## Uninstall
+
 ### Linux
+
 ```bash
 # Uninstall Neovim
-export CUSTOM_NVIM_PATH=/opt/nvim-linux64/bin/nvim
+export CUSTOM_NVIM_PATH=/opt/nvim-linux-x86_64/bin/nvim
 sudo update-alternatives --remove editor "${CUSTOM_NVIM_PATH}"
 sudo update-alternatives --remove ex "${CUSTOM_NVIM_PATH}"
 sudo update-alternatives --remove vi "${CUSTOM_NVIM_PATH}"
 sudo update-alternatives --remove view "${CUSTOM_NVIM_PATH}"
 sudo update-alternatives --remove vim "${CUSTOM_NVIM_PATH}"
 sudo update-alternatives --remove vimdiff "${CUSTOM_NVIM_PATH}"
-sudo rm -rf /opt/nvim-linux64
+sudo rm -rf /opt/nvim-linux-x86_64
 
 # Uninstall configuration
 sudo rm -rf ~/.config/nvim
 ```
+
 ### Windows
+
 ```pwsh
 choco uninstall neovim
 ```
