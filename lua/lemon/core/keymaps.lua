@@ -21,9 +21,9 @@ local function run() -- execute code
 	local filetype = vim.bo.filetype
 	if filetype == "cpp" then -- cpp/C++
 		if os_name == "Windows_NT" then
-			vim.cmd('TermExec cmd="g++ -std=c++23 ' .. filename .. ' && .\\a.exe" direction=vertical')
+			vim.cmd('TermExec cmd="g++ -std=c++20 -O2 -Wall ' .. filename .. ' && .\\a.exe" direction=vertical')
 		else
-			vim.cmd('TermExec cmd="g++ -std=c++23 ' .. filename .. ' && ./a.out" direction=vertical')
+			vim.cmd('TermExec cmd="g++ -std=c++20 -O2 -Wall ' .. filename .. ' && ./a.out" direction=vertical')
 		end
 	elseif filetype == "c" then -- C programming language
 		if os_name == "Windows_NT" then
