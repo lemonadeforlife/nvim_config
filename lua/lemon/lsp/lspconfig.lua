@@ -56,6 +56,18 @@ lspconfig["emmet_language_server"].setup({})
 lspconfig["pyright"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
+			},
+		},
+	},
 })
 lspconfig["ts_ls"].setup({
 	on_attach = on_attach,

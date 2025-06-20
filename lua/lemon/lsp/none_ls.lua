@@ -7,9 +7,10 @@ null_ls.setup({
 	-- update_in_insert = true,
 	sources = {
 		-- python
-		formatting.black,
+		-- formatting.black,
 		-- require("none-ls.diagnostics.flake8"),
-
+		require("none-ls.diagnostics.ruff"),
+		require("none-ls.formatting.ruff"),
 		-- C/C++
 		formatting.clang_format.with({
 			filetypes = { "c", "cpp", "cs" },

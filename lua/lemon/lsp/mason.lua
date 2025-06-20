@@ -13,7 +13,7 @@ local package_list = {
 	-- python
 	"pyright",
 	"black",
-	"flake8",
+	"ruff",
 	-- web dev stuff
 	"html",
 	"cssls",
