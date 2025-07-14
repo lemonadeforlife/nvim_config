@@ -89,3 +89,12 @@ lspconfig["powershell_es"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+lspconfig["yamlls"].setup({
+	settings = {
+		redhat = {
+			telemetry = {
+				enabled = false,
+			},
+		},
+	},
+})

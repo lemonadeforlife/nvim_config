@@ -22,6 +22,8 @@ local package_list = {
 	"prettierd",
 	-- json
 	"jsonls",
+	-- yaml
+	"yamlls",
 }
 if os_name == "Windows_NT" then
 	for _ = 1, 4 do
