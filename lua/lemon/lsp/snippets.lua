@@ -198,3 +198,23 @@ int main()
 		)
 	),
 })
+
+ls.add_snippets("cpp", {
+	s(
+		"#i",
+		fmt(
+			[[
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {{
+  {}
+  return 0;
+}}
+    ]],
+			{
+				i(0, "// Write your bugs here (¬_¬)"),
+			}
+		)
+	),
+})
