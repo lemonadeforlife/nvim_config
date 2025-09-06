@@ -112,7 +112,7 @@ Set-Alias vi nvim
 ## <span style="display:block;text-align: center;">Configuration</span>
 
 ```bash
-git clone https://github.com/lemonadeforlife/nvim_config ~/.config/nvim && vi
+git clone https://github.com/lemonadeforlife/nvim ~/.config/nvim && vi
 ```
 
 ## <span style="display:block;text-align: center;">Update</span>
@@ -130,19 +130,19 @@ choco upgrade neovim
 ## Feature
 
 - **Blazingly Fast⚡️** <br>
-  ![image](https://github.com/lemonadeforlife/nvim_config/assets/61580921/2c043960-5a43-4b45-93b0-28864b394b78)
+  ![image](https://github.com/lemonadeforlife/nvim/assets/61580921/2c043960-5a43-4b45-93b0-28864b394b78)
 
 - **Has Vim Motion to write code blazingly fast⚡️** <br>
-  ![demo_neovim_motion](https://github.com/lemonadeforlife/nvim_config/assets/61580921/30a5bd2b-061a-415e-b37d-17b49927bdba)
+  ![demo_neovim_motion](https://github.com/lemonadeforlife/nvim/assets/61580921/30a5bd2b-061a-415e-b37d-17b49927bdba)
 
 - **Has better customization** <br>
-  <img src="https://github.com/lemonadeforlife/nvim_config/assets/61580921/af16bf20-fc5c-4e40-96fe-ada131fb2262" width="790">
+  <img src="https://github.com/lemonadeforlife/nvim/assets/61580921/af16bf20-fc5c-4e40-96fe-ada131fb2262" width="790">
 
 - **Has blazingly fast ⚡️ fuzzy finder whether it's code, file or docs** <br>
-  ![fuzzy_out](https://github.com/lemonadeforlife/nvim_config/assets/61580921/9d1486d8-b90e-4976-b647-fb360d62eb81)
+  ![fuzzy_out](https://github.com/lemonadeforlife/nvim/assets/61580921/9d1486d8-b90e-4976-b647-fb360d62eb81)
 
 - **Has LSP Supports and of course it's blazingly fast ⚡️** <br>
-  ![LSP](https://github.com/lemonadeforlife/nvim_config/assets/61580921/7c5ce12a-9de1-4ea2-851e-fe9d46d579c3)
+  ![LSP](https://github.com/lemonadeforlife/nvim/assets/61580921/7c5ce12a-9de1-4ea2-851e-fe9d46d579c3)
 
 ## Plugins
 
