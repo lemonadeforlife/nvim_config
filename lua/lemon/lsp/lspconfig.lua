@@ -29,11 +29,13 @@ lspconfig["lua_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
 lspconfig["bashls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "sh", "zsh" },
 })
+
 lspconfig["html"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -46,12 +48,14 @@ lspconfig["html"].setup({
 		-- provideFormatter = true,
 	},
 })
+
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
 	init_options = {
 		-- provideFormatter = true,
 	},
 })
+
 lspconfig["emmet_language_server"].setup({})
 lspconfig["pyright"].setup({
 	on_attach = on_attach,
@@ -69,6 +73,7 @@ lspconfig["pyright"].setup({
 		},
 	},
 })
+
 lspconfig["ts_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -78,17 +83,21 @@ lspconfig["ts_ls"].setup({
 		},
 	},
 })
+
 lspconfig["jsonls"].setup({
 	capabilities = capabilities,
 })
+
 lspconfig["clangd"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
 lspconfig["powershell_es"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
 lspconfig["yamlls"].setup({
 	settings = {
 		redhat = {
@@ -97,4 +106,11 @@ lspconfig["yamlls"].setup({
 			},
 		},
 	},
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "java",
+	callback = function(args)
+		lspconfig["jdtls.jdtls_setup"].setup()
+	end,
 })
