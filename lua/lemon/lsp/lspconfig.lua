@@ -4,16 +4,16 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 -- attaching keymaps for lsp's
 local on_attach = function(_, _)
-	local telescope = require("telescope.builtin")
-	local keymap = vim.keymap.set
-	--local opts = { noremap = true, silent = true }
-	keymap("n", "<leader>rn", vim.lsp.buf.rename, {})
-	keymap("n", "<leader>ca", vim.lsp.buf.code_action, {})
+  local telescope = require("telescope.builtin")
+  local keymap = vim.keymap.set
+  --local opts = { noremap = true, silent = true }
+  keymap("n", "<leader>rn", vim.lsp.buf.rename, {})
+  keymap("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
-	keymap("n", "gd", telescope.lsp_definitions, {})
-	keymap("n", "gi", telescope.lsp_implementations, {})
-	keymap("n", "gr", telescope.lsp_references, {})
-	keymap("n", "K", vim.lsp.buf.hover, {})
+  keymap("n", "gd", telescope.lsp_definitions, {})
+  keymap("n", "gi", telescope.lsp_implementations, {})
+  keymap("n", "gr", telescope.lsp_references, {})
+  keymap("n", "K", vim.lsp.buf.hover, {})
 end
 
 -- declare client to show diagnostics in insert mode as well
@@ -27,84 +27,89 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- lsp configs
 lspconfig("lua_ls", {
-	on_attach = on_attach,
-	capabilities = capabilities,
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 lspconfig("bashls", {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = { "sh", "zsh" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "sh", "zsh" },
 })
 
 lspconfig("html", {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	init_options = {
-		configurationSection = { "html", "css", "javascript" },
-		embeddedLanguages = {
-			css = true,
-			javascript = true,
-		},
-		-- provideFormatter = true,
-	},
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    configurationSection = { "html", "css", "javascript" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true,
+    },
+    -- provideFormatter = true,
+  },
 })
 
 lspconfig("cssls", {
-	capabilities = capabilities,
-	init_options = {
-		-- provideFormatter = true,
-	},
+  capabilities = capabilities,
+  init_options = {
+    -- provideFormatter = true,
+  },
 })
 
 lspconfig("emmet_language_server", {})
 lspconfig("pyright", {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		pyright = {
-			-- Using Ruff's import organizer
-			disableOrganizeImports = true,
-		},
-		python = {
-			analysis = {
-				-- Ignore all files for analysis to exclusively use Ruff for linting
-				ignore = { "*" },
-			},
-		},
-	},
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { "*" },
+      },
+    },
+  },
 })
 
 lspconfig("ts_ls", {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	init_options = {
-		preferences = {
-			disableSuggestions = true,
-		},
-	},
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
 })
 
 lspconfig("jsonls", {
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 lspconfig("clangd", {
-	on_attach = on_attach,
-	capabilities = capabilities,
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 lspconfig("powershell_es", {
-	on_attach = on_attach,
-	capabilities = capabilities,
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 lspconfig("yamlls", {
-	settings = {
-		redhat = {
-			telemetry = {
-				enabled = false,
-			},
-		},
-	},
+  settings = {
+    redhat = {
+      telemetry = {
+        enabled = false,
+      },
+    },
+  },
+})
+
+lspconfig("rust_analyzer", {
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
