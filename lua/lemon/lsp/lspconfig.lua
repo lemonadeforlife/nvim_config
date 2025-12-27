@@ -1,4 +1,5 @@
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 -- attaching keymaps for lsp's
@@ -25,18 +26,18 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- lsp configs
-lspconfig["lua_ls"].setup({
+lspconfig("lua_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-lspconfig["bashls"].setup({
+lspconfig("bashls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "sh", "zsh" },
 })
 
-lspconfig["html"].setup({
+lspconfig("html", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	init_options = {
@@ -49,15 +50,15 @@ lspconfig["html"].setup({
 	},
 })
 
-lspconfig["cssls"].setup({
+lspconfig("cssls", {
 	capabilities = capabilities,
 	init_options = {
 		-- provideFormatter = true,
 	},
 })
 
-lspconfig["emmet_language_server"].setup({})
-lspconfig["pyright"].setup({
+lspconfig("emmet_language_server", {})
+lspconfig("pyright", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -74,7 +75,7 @@ lspconfig["pyright"].setup({
 	},
 })
 
-lspconfig["ts_ls"].setup({
+lspconfig("ts_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	init_options = {
@@ -84,21 +85,21 @@ lspconfig["ts_ls"].setup({
 	},
 })
 
-lspconfig["jsonls"].setup({
+lspconfig("jsonls", {
 	capabilities = capabilities,
 })
 
-lspconfig["clangd"].setup({
+lspconfig("clangd", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-lspconfig["powershell_es"].setup({
+lspconfig("powershell_es", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-lspconfig["yamlls"].setup({
+lspconfig("yamlls", {
 	settings = {
 		redhat = {
 			telemetry = {
