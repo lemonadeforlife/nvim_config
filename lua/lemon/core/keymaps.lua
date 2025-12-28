@@ -37,8 +37,15 @@ local function run() -- execute code
 		else
 			vim.cmd('TermExec cmd="python3 ' .. filename .. '" direction=vertical')
 		end
+	elseif filetype == "rust" then -- rust
+		vim.cmd('TermExec cmd="cargo run" direction=vertical')
 	else
-		vim.notify("There is no such config for " .. filetype, vim.log.levels.INFO)
+		vim.notify(
+			"Welp seems like there is no config for "
+				.. filetype
+				.. "\nYou gotta write the command for yourself buddy :)",
+			vim.log.levels.INFO
+		)
 	end
 end
 -- Shorten function name
