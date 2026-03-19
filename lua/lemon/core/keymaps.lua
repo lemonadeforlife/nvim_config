@@ -41,9 +41,9 @@ local function run() -- execute code
 		vim.cmd('TermExec cmd="cargo run" direction=vertical')
 	else
 		vim.notify(
-			"Welp seems like there is no config for "
+			"Welp seems like there is no config for `"
 				.. filetype
-				.. "\nYou gotta write the command for yourself buddy :)",
+				.. "`\nYou gotta write the command for yourself buddy :)",
 			vim.log.levels.INFO
 		)
 	end
@@ -145,22 +145,24 @@ wk.add({
 	-- Navigate buffers
 	{ "<S-l>", "<cmd>bnext<cr>", desc = "Navigate buffer to left" },
 	{ "<S-h>", "<cmd>bprevious<cr>", desc = "Navigate buffer to right" },
+
 	-- LSP/Code Related Shortcuts: Trouble, Mason etc
 	{ "<leader>l", group = "LSP", icon = "󰒋" },
 	-- t = { "<cmd>Trouble diagnostics toggle<cr>", "List of troubles from LSP" },
 	{ "<leader>lm", "<cmd>Mason<cr>", desc = "Mason Dashboard" },
 	{ "<leader>ln", "<cmd>NullLsInfo<cr>", desc = "Null Info Dashboard" },
-	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info Dashboard" },
+	{ "<leader>lo", "<cmd>LspInfo<cr>", desc = "Lsp Info Dashboard" },
 	{ "<leader>ll", "<cmd>LspLog<cr>", desc = "Lsp Log Dashboard" },
 	{ "<leader>lc", "<cmd>CmpStatus<cr>", desc = "Completion Status" },
 	{ "<leader>lp", "<cmd>Lazy<cr>", desc = "Opens up the plugin manager" },
 	{ "<leader>ls", "<cmd>noa w<cr>", desc = "Save file without any formatting" },
 	{ "<leader>lf", toggle_formatoptions_cro, desc = "Toggle next line auto comment" },
-	{ "<leader>gd", desc = "LSP Definition" },
-	{ "<leader>gi", desc = "LSP Implementations" },
-	{ "<leader>gr", desc = "LSP Referrence" },
-	{ "<leader>rn", desc = "Rename Variable" },
+	{ "<leader>ld", desc = "LSP Definition", group = "LSP" },
+	{ "<leader>li", desc = "LSP Implementations", group = "LSP" },
+	{ "<leader>lr", desc = "LSP Referrence", group = "LSP" },
+	{ "<leader>lv", desc = "Rename Variable", group = "LSP" },
 	{ "<leader>rr", run, desc = "Compile & Run cpp file" },
+
 	-- related to searching, git, finding files, telescope etc
 	{ "<leader>s", group = "Search/Browse" },
 	{
@@ -190,11 +192,24 @@ wk.add({
 	},
 	{ "<leader>sg", "<cmd>Telescope git_files<cr>", desc = "List Git files respecting .gitignore" },
 	{ "<leader>ss", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in current buffer" },
+
 	-- Git
 	{ "<leader>g", group = "Git" },
-	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "List of Git commits" },
-	{ "<leader>gp", ":Gitsigns preview_hunk<cr>", desc = "Previews Git blame on yellow bar" },
-	{ "<leader>gd", "<cmd>Gvdiffsplit<cr>", desc = "Preview Git Diff" },
+	{
+		"<leader>gc",
+		"<cmd>Telescope git_commits<cr>",
+		desc = "List of Git commits",
+	},
+	{
+		"<leader>gp",
+		":Gitsigns preview_hunk<cr>",
+		desc = "Previews Git blame on yellow bar",
+	},
+	{
+		"<leader>gd",
+		"<cmd>Gvdiffsplit<cr>",
+		desc = "Preview Git Diff",
+	},
 	{ "<leader>gl", "<cmd>GitSigns toggle_linehl<cr>", desc = "Highlight Line" },
 	{
 		"<C-l>",
@@ -202,6 +217,7 @@ wk.add({
 		desc = "Highlight Line in Insert Mode",
 		mode = "i",
 	},
+
 	-- Noice
 	{ "<leader>n", group = "Noice" },
 	{ "<leader>nh", "<cmd>Noice history<cr>", desc = "Shows the message history" },
@@ -220,6 +236,7 @@ wk.add({
 	{ "<leader>Ss", "<cmd>SessionSave<cr>", desc = "Save the current session for cwd" },
 	{ "<leader>Sw", "<cmd>SudaWrite<cr>", desc = "Write the readonly file" },
 	{ "<leader>SR", "<cmd>SudaRead<cr>", desc = "Open unreadable file" },
+
 	-- Better Tmux Window & Buffer navigation
 	{ "<C-h>", "<cmd>TmuxNavigateLeft<cr>" },
 	{ "<C-j>", "<cmd>TmuxNavigateDown<cr>" },
