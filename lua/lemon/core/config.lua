@@ -1,7 +1,7 @@
 -- Theme
-if os_name == "Linux" then
+if OS_NAME == "Linux" then
 	vim.cmd([[colorscheme tokyonight-night]])
-elseif os_name == "Windows_NT" then
+elseif OS_NAME == "Windows_NT" then
 	require("catppuccin").setup({
 		flavour = "mocha",
 		transparent_background = true,

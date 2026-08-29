@@ -1,19 +1,19 @@
 -- Useful Environment Variable
-os_name = vim.uv.os_uname().sysname
-if os_name == "Linux" then
-  Home = os.getenv("HOME")
+OS_NAME = vim.uv.os_uname().sysname
+if OS_NAME == "Linux" then
+	Home = os.getenv("HOME")
 end
 
 -- Useful Function
 function Read_file(path)
-  local open = io.open
-  local file = open(path, "rb") -- r read mode and b binary mode
-  if not file then
-    return nil
-  end
-  local content = file:read("*a") -- *a or *all reads the whole file
-  file:close()
-  return content
+	local open = io.open
+	local file = open(path, "rb") -- r read mode and b binary mode
+	if not file then
+		return nil
+	end
+	local content = file:read("*a") -- *a or *all reads the whole file
+	file:close()
+	return content
 end
 
 -- settings for NvimTree
@@ -21,11 +21,11 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.api.nvim_create_autocmd("VimLeave", {
-  command = "set guicursor=a:ver25",
+	command = "set guicursor=a:ver25",
 })
 -- python provider
-if os_name == "Linux" then
-  vim.g.python3_host_prog = Home .. "/.pyenv/versions/.nvim-venv/bin/python"
+if OS_NAME == "Linux" then
+	vim.g.python3_host_prog = Home .. "/.pyenv/versions/.nvim-venv/bin/python"
 end
 
 vim.opt.clipboard:append("unnamedplus")

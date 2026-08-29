@@ -2,7 +2,7 @@ return {
 	"IogaMaster/neocord",
 	event = "VeryLazy",
 	config = function()
-		if os_name == "Linux" then
+		if OS_NAME == "Linux" then
 			require("neocord").setup({
 				client_id = Read_file(Home .. "/.config/nvim/.env"),
 			})

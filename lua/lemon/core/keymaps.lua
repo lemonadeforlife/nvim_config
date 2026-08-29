@@ -20,19 +20,19 @@ local function run() -- execute code
 	local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
 	local filetype = vim.bo.filetype
 	if filetype == "cpp" then -- cpp/C++
-		if os_name == "Windows_NT" then
+		if OS_NAME == "Windows_NT" then
 			vim.cmd('TermExec cmd="g++ -std=c++20 -O2 -Wall ' .. filename .. ' && .\\a.exe" direction=vertical')
 		else
 			vim.cmd('TermExec cmd="g++ -std=c++20 -O2 -Wall ' .. filename .. ' && ./a.out" direction=vertical')
 		end
 	elseif filetype == "c" then -- C programming language
-		if os_name == "Windows_NT" then
+		if OS_NAME == "Windows_NT" then
 			vim.cmd('TermExec cmd="gcc ' .. filename .. ' && .\\a.exe" direction=vertical')
 		else
 			vim.cmd('TermExec cmd="gcc ' .. filename .. ' && ./a.out" direction=vertical')
 		end
 	elseif filetype == "python" then -- Python
-		if os_name == "Windows_NT" then
+		if OS_NAME == "Windows_NT" then
 			vim.cmd('TermExec cmd="python ' .. filename .. '" direction=vertical')
 		else
 			vim.cmd('TermExec cmd="python3 ' .. filename .. '" direction=vertical')
@@ -157,10 +157,10 @@ wk.add({
 	{ "<leader>lp", "<cmd>Lazy<cr>", desc = "Opens up the plugin manager" },
 	{ "<leader>ls", "<cmd>noa w<cr>", desc = "Save file without any formatting" },
 	{ "<leader>lf", toggle_formatoptions_cro, desc = "Toggle next line auto comment" },
-	{ "<leader>ld", desc = "LSP Definition", group = "LSP" },
-	{ "<leader>li", desc = "LSP Implementations", group = "LSP" },
-	{ "<leader>lr", desc = "LSP Referrence", group = "LSP" },
-	{ "<leader>lv", desc = "Rename Variable", group = "LSP" },
+	{ "<leader>ld", desc = "LSP Definition" },
+	{ "<leader>li", desc = "LSP Implementations" },
+	{ "<leader>lr", desc = "LSP Referrence" },
+	{ "<leader>lv", desc = "Rename Variable" },
 	{ "<leader>rr", run, desc = "Compile & Run cpp file" },
 
 	-- related to searching, git, finding files, telescope etc

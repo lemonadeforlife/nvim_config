@@ -1,7 +1,7 @@
 local function buildCmd(cmd)
 	local compiler
 	local install
-	if os_name == "Linux" then
+	if OS_NAME == "Linux" then
 		compiler = "make"
 		install = "./install --all"
 	else
