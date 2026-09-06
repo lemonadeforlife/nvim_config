@@ -1,54 +1,55 @@
 local function buildCmd(cmd)
-	local compiler
-	local install
-	if OS_NAME == "Linux" then
-		compiler = "make"
-		install = "./install --all"
-	else
-		compiler = "gcc"
-		install = ".\\install.ps1 --all"
-	end
-	if cmd == "compiler" then
-		return compiler
-	elseif cmd == "install" then
-		return install
-	end
+  local compiler
+  local install
+  if OS_NAME == "Linux" then
+    compiler = "make"
+    install = "./install --all"
+  else
+    compiler = "gcc"
+    install = ".\\install.ps1 --all"
+  end
+  if cmd == "compiler" then
+    return compiler
+  elseif cmd == "install" then
+    return install
+  end
 end
 return {
-	"nvim-telescope/telescope.nvim",
-	version = "0.1.4",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "junegunn/fzf", build = buildCmd("install") },
-		"junegunn/fzf.vim",
-		"nvim-telescope/telescope-file-browser.nvim",
-	},
-	config = function()
-		local telescope = require("telescope")
-		local actions = require("telescope.actions")
-		telescope.setup({
-			defaults = {
-				mappings = {
-					i = {
-						["<C-j>"] = actions.move_selection_next,
-						["<C-k>"] = actions.move_selection_previous,
-						["<C-p>"] = require("telescope.actions.layout").toggle_preview,
-					},
-					n = {
-						["q"] = actions.close,
-						["<C-p>"] = require("telescope.actions.layout").toggle_preview,
-					},
-				},
-			},
-			pickers = {
-				find_files = {
-					previewer = false,
-				},
-			},
-		})
-		telescope.load_extension("fzf")
-		telescope.load_extension("noice")
-		telescope.load_extension("file_browser")
-	end,
+  "nvim-telescope/telescope.nvim",
+  version = "*",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "junegunn/fzf",                             build = buildCmd("install") },
+    "nvim-tree/nvim-web-devicons",
+    "junegunn/fzf.vim",
+    "nvim-telescope/telescope-file-browser.nvim",
+  },
+  config = function()
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
+    telescope.setup({
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
+          },
+          n = {
+            ["q"] = actions.close,
+            ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
+          },
+        },
+      },
+      pickers = {
+        find_files = {
+          previewer = false,
+        },
+      },
+    })
+    telescope.load_extension("fzf")
+    telescope.load_extension("noice")
+    telescope.load_extension("file_browser")
+  end,
 }
